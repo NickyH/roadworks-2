@@ -1,0 +1,115 @@
+
+@font-family-main: 'Arial', Helvetica, sans-serif;
+
+// Two main colours
+@map-highlight-colour: #5a71e2;
+@form-highlight-colour: #07aa8b;
+
+// Background-colours
+
+@background-main: @white-medium;
+@left-bar-colour: @grey-dark;
+@qtip-background: @white-medium;
+
+// Fixed colours
+
+@grey-darker: #303030;
+@grey-dark: #4D4D4D;
+@grey-medium: #CCCCCC;
+@grey-light: #e5e5e5;
+
+@white-medium: #f2f2f2;
+@white: #FFFFFF;
+
+@black: #000000;
+@black-medium: #272825;
+
+@blue-light: #dfe6f4;
+@blue-medium: #346ad6;
+
+// buttons
+
+@save-button-colour: #25af38;
+@cancel-button-colour: #bd3a3a;
+@layer-active: #49C12D;
+
+//Form colours
+
+@required: #c7f9f6;
+@form-background-required: lighten(@required, 9%);
+@form-border-required: darken(@required, 40%);
+@file-upload-light: @white-medium;
+
+// Customisable colours
+
+@map-tab-colour: @map-highlight-colour;
+@map-tab-border: 1px solid @white;
+@map-icon-colour: @map-highlight-colour;
+@map-icon-inactive: fade(@map-icon-colour, 50%);
+@map-panel-background: @white-medium;
+
+
+@form-tab-colour: @form-highlight-colour;
+@form-tab-border: 1px solid @white;
+@form-label-border: 1px solid @grey-medium;
+
+@form-icon-colour: @form-highlight-colour;
+@form-icon-inactive: fade(@form-icon-colour, 50%);
+@form-panel-background: @white-medium;
+
+@utility-icon-colour: @white;
+
+//Dimensions
+
+@left-bar-width: 120px;
+@top-bar-height: 100px;
+
+//Forms
+@form-panel-border: 1px solid @form-highlight-colour;
+@form-panel-border-radius: 12px;
+
+//Tabs
+@tab-border: 1px solid @white;
+@tab-border-radius: 7px;
+@tab-fill: @white;
+@tab-fill-hover: @white-medium;
+@tab-fill-active: @white-medium;
+@tab-border-active: 1px solid @white-medium;
+
+.font-tab { font-family: @font-family-main; font-weight: normal; }
+
+// Fonts
+
+@input-form-font: 14px @font-family-main;
+@form-header-font: 22px @font-family-main;
+@form-header-font-medium: 14px @font-family-main;
+@form-header-font-small: 12px @font-family-main;
+@form-button-font: 16px @font-family-main;
+@form-tab-font: 15px @font-family-main;
+@form-label-font: 13px @font-family-main;
+@layers-header-font: 14px arial, sans-serif;
+
+// Media Queries
+
+// responsive
+@widthNarrow:         ~"(max-width: 320px)";
+@widthMedium:         ~"(max-width: 600px)";
+@widthMediumLarge:    ~"(min-width: 601px) and (max-width: 768px)";
+@widthLarge:          ~"(min-width: 1024px)";
+
+@heightShort:         ~"(max-height: 479px)";
+@heightShortMedium:   ~"(min-height: 480px) and (max-height: 560px)";
+@heightMedium:        ~"(max-height: 700px)";
+@heightTall:          ~"(min-height: 768px)";
+@mediaScreen:         ~"only screen and ";
+
+// condition:  is the tablet rotated portrait or landscape?;
+@tabletLandscape:      ~"(orientation: landscape)";
+@tabletPortrait:       ~"(orientation: portrait)";
+
+// set the min-width and height
+@tabletLandscapeWidth:               ~"(min-width: 1024px) and (orientation: landscape)";
+@tabletLandscapeHeight:              ~"(min-height: 768px) and (orientation: landscape)";
+
+@tabletPortraitWidth:                ~"(min-width: 768px) and (orientation: portrait)";
+@tabletPortraitHeight:               ~"(min-height: 1024px) and (orientation: portrait)";

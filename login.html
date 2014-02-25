@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>iAmisPro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="../Content/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/less" href="../Content/less/override.less">
+  </head>
+
+  <body>
+
+  <!-- forms content container -->
+  <div class="container-fluid login-container">
+
+    <!-- login panel -->
+    <div class="row">
+      <div class="col-12">
+
+          <!-- form panel 1 -->
+          <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <div class="form-panel login">
+
+              <form class="form-horizontal container login" role="form">
+
+                  <div class="form-group">
+                    <div class="login-title">
+                      <img class="login-icon" src="../Content/images/icons/icon-globe-white.png">
+                      <span>iAmisPro</span>
+                      <span class="login-dtims">powered by dTims</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label">Username</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label">Password</label>
+                    <div class="col-sm-8">
+                      <input type="password" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                      <ul class="nav nav-pills nav-stacked">
+                        <li class="active">
+                          <a href="#" class="pill-select inactive">
+                            <span class="badge pull-right">&#10008</span>
+                            Remember Me
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-sm-4">
+                      <ul class="nav nav-pills nav-stacked">
+                        <li class="active">
+                          <a href="#" class="login-select inactive">
+                            <span class="badge pull-right"><span class="glyphicon glyphicon-play-circle"></span></span>
+                            Login
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+              </form>
+
+
+            </div>
+          </div>
+          <!-- end form panel 1 -->
+
+      </div>
+    </div>
+    <!-- end login panel -->
+
+    </div> <!-- end form container -->
+
+    <script src="../Scripts/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../Scripts/js/parsley.js"></script>
+    <script src="../Scripts/js/bootstrap.min.js"></script>
+    <script src="../Scripts/js/less.js" type="text/javascript"></script>
+    <script src='../Scripts/js/jquery.cookie.js'></script>
+
+    <script>
+    $('.pill-select').on('click', toggle_rw_select);
+
+    function toggle_rw_select() {
+      event.preventDefault();
+      $(this).toggleClass('inactive');
+
+      if($(this).hasClass('inactive')) {
+        $(this).children('.pull-right').html('&#10008');
+      }
+
+      else {
+        $(this).children('.pull-right').html('&#10004');
+      }
+    }
+    </script>
+
+  </body>
+</html>

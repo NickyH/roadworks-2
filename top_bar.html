@@ -1,0 +1,407 @@
+<div class="top-bar">
+  <div class="utility-tab map-tools">
+    <!-- icons for map tools -->
+    <img class="top-bar-icons icon-map icon-address-book" id="search-by-address-button" src="../Content/images/icons/icon-address-white.png">
+    <img class="top-bar-icons icon-map icon-locate-me" src="../Content/images/icons/icon-locateme-white.png">
+    <img class="top-bar-icons icon-map icon-follow-me" src="../Content/images/icons/icon-followme-white.png">
+    <img class="top-bar-icons icon-map icon-startgps" src="../Content/images/icons/icon-startgps-white.png">
+
+    <!--form icons-->
+    <img class="top-bar-icons icon-form icon-asset hidden" src="../Content/images/icons/icon-asset-white.png">
+    <img class="top-bar-icons icon-form icon-request hidden" src="../Content/images/icons/icon-cr-white.png">
+    <img class="top-bar-icons icon-form icon-inspect hidden" src="../Content/images/icons/icon-inspection-white.png">
+    <img class="top-bar-icons icon-form icon-defects hidden" src="../Content/images/icons/icon-defect-white.png">
+    <img class="top-bar-icons icon-form icon-task hidden inactive" src="../Content/images/icons/icon-task-white.png">
+    <img class="top-bar-icons icon-form icon-clock hidden inactive" src="../Content/images/icons/icon-clock-white.png">
+
+    <!-- history icon -->
+    <img class="top-bar-icons icon-form icon-history hidden" src="../Content/images/icons/icon-history-white.png">
+
+  </div>
+
+</div>
+
+
+
+
+<!--  <!-- history tree -->
+
+<!-- history list qtip content -->
+<div id="process-history" class="hidden">
+  <script>
+  $('ul[id="accordion-20"]').dcAccordion();
+  </script>
+  <!-- highest level, class 'item' is part of owl-carousel in this case just using it to match styling using .item class-->
+  <div class="item">
+    <!-- each new accordion needs id with number at end-->
+    <ul id="accordion-20" class="menu">
+
+      <!-- highest level category heading-->
+      <li>
+        <a href="#" class="truncate">Category 1</a>
+        <span class="select-history"><span class="select-category-text">SELECT</span></span>
+        <ul>
+          <!-- second level category heading-->
+          <li>
+            <a href="#" class="truncate">Sub Category 1</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+            <ul>
+              <!-- all layer li's need class of 'layer'-->
+              <li class="layer">
+                <!-- layer heading - lowest level-->
+                <a href="#" class="truncate">Customer Request - A</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Customer Request - W</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Customer Request - C</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+            </ul>
+          </li>
+          <!-- end of second level category-->
+
+          <!-- second level category heading-->
+          <li>
+            <a href="#" class="truncate">Sub Cateogry 2</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+            <ul>
+              <!-- all layer li's need class of 'layer'-->
+              <li class="layer">
+                  <!-- layer heading - lowest level-->
+                  <a href="#" class="truncate">Layer 1</a>
+                  <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Layer 2</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+            </ul>
+          </li>
+          <!-- end of second level category-->
+
+          <!-- second level category heading-->
+          <li>
+            <a href="#" class="truncate">Sub Category 3</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+            <ul>
+              <!-- all layer li's need class of 'layer'-->
+              <li class="layer">
+                <!-- layer heading - lowest level-->
+                <a href="#" class="truncate">Layer 1</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Layer 2</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+            </ul>
+          </li>
+          <!-- end of second level category-->
+
+          <!-- second level category heading-->
+          <li>
+            <a href="#" class="truncate">Sub Category 4</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+            <ul>
+              <!-- all layer li's need class of 'layer'-->
+              <li class="layer">
+                <!-- layer heading - lowest level-->
+                <a href="#" class="truncate">Layer 1</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Layer 2</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+            </ul>
+          </li>
+          <!-- end of second level category-->
+
+        </ul>
+      </li>
+      <!-- end of highest level category headings-->
+
+      <!-- highest level category heading-->
+      <li>
+        <a href="#" class="truncate">Category 2</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+        <ul>
+          <!-- second level category heading-->
+          <li>
+            <a href="#" class="truncate">Sub Category 1</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+            <ul>
+              <!-- all layer li's need class of 'layer'-->
+              <li class="layer">
+                <!-- layer heading - lowest level-->
+                <a href="#" class="truncate">Layer 1</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Layer 2</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+            </ul>
+          </li>
+          <!-- end of second level category-->
+
+          <!-- second level category heading-->
+          <li>
+            <a href="#" class="truncate">Sub Category 2</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+            <ul>
+              <!-- all layer li's need class of 'layer'-->
+              <li class="layer">
+                <!-- layer heading - lowest level-->
+                <a href="#" class="truncate">Layer 1</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Layer 2</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+            </ul>
+          </li>
+          <!-- end of second level category-->
+
+          <!-- second level category heading-->
+          <li>
+            <a href="#" class="truncate">Sub Category 3</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+            <ul>
+              <!-- all layer li's need class of 'layer'-->
+              <li class="layer">
+                <!-- layer heading - lowest level-->
+                <a href="#" class="truncate">Layer 1</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Layer 2</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+            </ul>
+          </li>
+          <!-- end of second level category-->
+
+          <!-- second level category heading-->
+          <li>
+            <a href="#" class="truncate">Sub Category 4</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+            <ul>
+              <!-- all layer li's need class of 'layer'-->
+              <li class="layer">
+                <!-- layer heading - lowest level-->
+                <a href="#" class="truncate">Layer 1</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Layer 2</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+            </ul>
+          </li>
+          <!-- end of second level category-->
+
+        </ul>
+      </li>
+      <!-- end of highest level category headings-->
+
+      <!-- highest level category heading-->
+      <li>
+        <a href="#" class="truncate">Category 3</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+        <ul>
+          <!-- second level category heading-->
+          <li>
+            <a href="#" class="truncate">Sub Category 1</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+            <ul>
+              <!-- all layer li's need class of 'layer'-->
+              <li class="layer">
+                <!-- layer heading - lowest level-->
+                <a href="#" class="truncate">Layer 1</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Layer 2</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+            </ul>
+          </li>
+          <!-- end of second level category-->
+
+          <!-- second level category heading-->
+          <li>
+            <a href="#" class="truncate">Sub Category 2</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+            <ul>
+              <!-- all layer li's need class of 'layer'-->
+              <li class="layer">
+                <!-- layer heading - lowest level-->
+                <a href="#" class="truncate">Layer 1</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Layer 2</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+            </ul>
+          </li>
+          <!-- end of second level category-->
+
+          <!-- second level category heading-->
+          <li>
+            <a href="#" class="truncate">Sub Category 3</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+            <ul>
+              <!-- all layer li's need class of 'layer'-->
+              <li class="layer">
+                <!-- layer heading - lowest level-->
+                <a href="#" class="truncate">Layer 1</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Layer 2</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+            </ul>
+          </li>
+          <!-- end of second level category-->
+
+          <!-- second level category heading-->
+          <li>
+            <a href="#" class="truncate">Sub Category 4</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+            <ul>
+              <!-- all layer li's need class of 'layer'-->
+              <li class="layer">
+                <!-- layer heading - lowest level-->
+                <a href="#" class="truncate">Layer 1</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Layer 2</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+            </ul>
+          </li>
+          <!-- end of second level category-->
+
+        </ul>
+      </li>
+      <!-- end of highest level category headings-->
+
+      <!-- highest level category heading-->
+      <li>
+        <a href="#" class="truncate">Category 4</a>
+        <span class="select-history"><span class="select-category-text">SELECT</span></span>
+        <ul>
+          <!-- second level category heading-->
+          <li>
+            <a href="#" class="truncate">Sub Category 1</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+            <ul>
+              <!-- all layer li's need class of 'layer'-->
+              <li class="layer">
+                <!-- layer heading - lowest level-->
+                <a href="#" class="truncate">Layer 1</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Layer 2</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Layer 3</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Layer 4</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+            </ul>
+          </li>
+          <!-- end of second level category-->
+
+          <!-- second level category heading-->
+          <li>
+            <a href="#" class="truncate">Sub Category 2</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+            <ul>
+              <!-- all layer li's need class of 'layer'-->
+              <li class="layer">
+                <!-- layer heading - lowest level-->
+                <a href="#" class="truncate">Layer 1</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Layer 2</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+            </ul>
+          </li>
+          <!-- end of second level category-->
+
+          <!-- second level category heading-->
+          <li>
+            <a href="#" class="truncate">Sub Category 3</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+            <ul>
+              <!-- all layer li's need class of 'layer'-->
+              <li class="layer">
+                <!-- layer heading - lowest level-->
+                <a href="#" class="truncate">Layer 1</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Layer 2</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+            </ul>
+          </li>
+          <!-- end of second level category-->
+
+          <!-- second level category heading-->
+          <li>
+            <a href="#" class="truncate">Sub Category 4</a>
+            <span class="select-history"><span class="select-category-text">SELECT</span></span>
+            <ul>
+              <!-- all layer li's need class of 'layer'-->
+              <li class="layer">
+                <!-- layer heading - lowest level-->
+                <a href="#" class="truncate">Layer 1</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+              <li class="layer">
+                <a href="#" class="truncate">Layer 2</a>
+                <span class="select-history"><span class="select-category-text">SELECT</span></span>
+              </li>
+            </ul>
+          </li>
+          <!-- end of second level category-->
+
+        </ul>
+      </li>
+      <!-- end of highest level category headings-->
+    </ul>
+    <!-- end of accordion-->
+  </div>
+  <!-- end item-->
+  <div class="history-button"><div class="button show-closed active"><span>SHOW CLOSED</span></div><div class=" button hide-closed"><span>HIDE CLOSED</span></div></div>
+</div>
+<!-- end history list qtip content -->
+
+
+
+<script>
+  $('.icon-form').on('click', show_correct_ovals);
+  $('.icon-request').on('click', insert_CR_form);
+  $('.icon-defects').on('click', insert_defect_form);
+  $('.icon-inspect').on('click', insert_inspection_form);
+  $('.icon-task').on('click', insert_task_form);
+  $('.icon-clock').on('click', insert_timesheet_form);
+</script>

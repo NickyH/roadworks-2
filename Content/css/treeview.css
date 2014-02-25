@@ -1,0 +1,111 @@
+﻿.css-treeview ul,
+.css-treeview li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    white-space: nowrap !important;
+}
+
+.css-treeview input {
+    position: absolute;
+    opacity: 0;
+}
+
+.css-treeview {
+    font: normal 16px "Segoe UI", Arial, Sans-serif !important;
+    text-decoration: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    overflow: hidden;
+}
+
+    .css-treeview a {
+        font-size: 18px !important;
+        color: #000000;
+        text-decoration: none !important;
+        white-space: nowrap !important;
+    }
+
+        .css-treeview a:hover {
+            text-decoration: underline;
+            font-color: #00008b !important;
+        }
+
+    /*.css-treeview input + label + ul {
+        margin: 0 0 0 22px;
+    }*/
+
+    .css-treeview input + label + ul, .css-treeview input + label + a + ul {
+        margin: 0 0 0 22px;
+    }
+
+    .css-treeview input ~ ul {
+        display: none;
+    }
+
+    .css-treeview label,
+    .css-treeview label::before {
+        cursor: pointer;
+    }
+
+    .css-treeview input:disabled + label {
+        cursor: default;
+        opacity: .6;
+    }
+
+    .css-treeview input:checked:not(:disabled) ~ ul {
+        display: block;
+    }
+
+    .css-treeview label,
+    .css-treeview label::before {
+        background: url("../images/tree_icons.png") no-repeat;
+    }
+
+        .css-treeview label,
+        .css-treeview a,
+        .css-treeview label::before {
+            display: inline-block;
+            height: 16px;
+            line-height: 16px;
+            vertical-align: top;
+        }
+
+    .css-treeview label {
+        background-position: -9999px 0;
+    }
+
+        .css-treeview label::before {
+            content: "";
+            width: 16px;
+            margin: 0 10px 0 0;
+            vertical-align: middle;
+            background-position: 0 -32px;
+        }
+
+    .css-treeview input:checked + label::before {
+        background-position: 0 -16px;
+    }
+
+/* webkit adjacent element selector bugfix */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .css-treeview {
+        -webkit-animation: webkit-adjacent-element-selector-bugfix infinite 1s;
+    }
+
+    @-webkit-keyframes webkit-adjacent-element-selector-bugfix {
+        from {
+            padding: 0;
+        }
+
+        to {
+            padding: 0;
+        }
+    }
+}
+
+/* Custom style determined at runtime */
+.isClosed {
+    color: #c2bbbb !important;
+}
