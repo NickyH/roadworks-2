@@ -17,6 +17,18 @@ $('span.lookup').on('click', open_address_book);
 $('.input-group-addon').on('click', calendar_icon_click); //activate calendar on icon click
 $('.history-button .button').on('click', toggle_history_button);
 
+function enable_fields(group) {
+  var row = $(group).parents('.form-group');
+  $(row).children().find('.form-control').removeAttr('disabled');
+  $(row).children().find('.selectpicker').removeClass('disabled');
+}
+
+function disable_fields(group) {
+  var row = $(group).parents('.form-group');
+  $(row).children().find('.form-control').attr('disabled', 'disabled');
+  $(row).children().find('.selectpicker').addClass('disabled');
+}
+
 function calendar_icon_click() {
   $(this).parent().children('.form-control').datetimepicker('show');
 }

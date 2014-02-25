@@ -492,7 +492,7 @@ function openActionRow(row) {
 function goto_forms() {
   form_navbar();
   $('#insert-map').empty();
-  $.get('forms/form_cr.html', function(data) {
+  $.get('forms/form_jpp.html', function(data) {
     $('#insert-form').html(data);
     });
   $('#insert-form').trigger('create');
@@ -513,7 +513,7 @@ function insert_inspection_form() {
 
 function insert_CR_form() {
   $('#insert-form').empty();
-  $.get('forms/form_cr.html', function(data) {
+  $.get('forms/form_jpp.html', function(data) {
     $('#insert-form').html(data);
   });
   var formName = 'request'

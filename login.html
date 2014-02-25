@@ -91,19 +91,6 @@
 
     <script>
     $('.pill-select').on('click', toggle_rw_select);
-
-    function toggle_rw_select() {
-      event.preventDefault();
-      $(this).toggleClass('inactive');
-
-      if($(this).hasClass('inactive')) {
-        $(this).children('.pull-right').html('&#10008');
-      }
-
-      else {
-        $(this).children('.pull-right').html('&#10004');
-      }
-    }
     </script>
 
   </body>
