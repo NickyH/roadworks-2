@@ -375,30 +375,29 @@ function layer_active_clicked() {
 function goto_forms() {
   form_navbar();
   $('#insert-map').empty();
-  $.get('forms/form_rw1.html', function(data) {
+  $.get('forms/form_jpp.html', function(data) {
     $('#insert-form').html(data);
     });
-  $('#insert-form').trigger('create');
-  var formName = 'rw1'
+  var formName = 'jpp'
   show_correct_ovals(formName);
 }
 
 function insert_rw1_form() {
   $('#insert-form').empty();
-  $.get('forms/form_rw1.html', function(data) {
+  $.get('forms/form_jpp.html', function(data) {
     $('#insert-form').html(data);
     });
-  var formName = 'rw1'
+  var formName = 'jpp'
   show_correct_ovals(formName);
   $('html body').animate({ scrollTop: 0 });
 }
 
 function insert_rw2_form() {
   $('#insert-form').empty();
-  $.get('forms/form_rw2.html', function(data) {
+  $.get('forms/form_pc.html', function(data) {
     $('#insert-form').html(data);
     });
-  var formName = 'rw2'
+  var formName = 'pc'
   show_correct_ovals(formName);
   $('html body').animate({ scrollTop: 0 });
 }
@@ -409,7 +408,6 @@ function goto_map() {
   $.get('MapLayer.html', function(data) {
     $('#insert-map').html(data);
     });
-  $('#insert-map').trigger('create');
   insert_left();
 }
 
@@ -433,7 +431,8 @@ function form_navbar() {
 }
 
 function show_correct_ovals(formName) {
-  if (formName === 'rw1') {
+    console.log(formName);
+  if (formName === 'jpp') {
     $('a[data-href="#bookmark_details_pl"]').parent('li').show();
     $('a[data-href="#bookmark_activities"]').parent('li').show();
     $('a[data-href="#bookmark_planning"]').parent('li').show();
@@ -443,7 +442,7 @@ function show_correct_ovals(formName) {
     $('a[data-href="#bookmark_details_pc"]').parent('li').hide();
     $('a[data-href="#bookmark_signoff"]').parent('li').hide();
   }
-  if (formName === 'rw2') {
+  if (formName === 'pc') {
     $('a[data-href="#bookmark_details_pc"]').parent('li').show();
     $('a[data-href="#bookmark_signoff"]').parent('li').show();
 
@@ -924,7 +923,6 @@ function show_first_form() {
   $.get('forms/form_jpp.html', function(data) {
     $('#insert-form').html(data);
     });
-  $('#insert-form').trigger('create');
   window.location = ('form.html'); //initial refresh
 }
 
