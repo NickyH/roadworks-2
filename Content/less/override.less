@@ -72,9 +72,6 @@ body {
   margin: 24px;
   width: 50px;
   opacity: 0.8;
-  // -moz-box-shadow: 2px 2px @grey-dark;
-  // -webkit-box-shadow: 2px 2px @grey-dark;
-  // box-shadow: 2px 2px @grey-dark;
   &.icon-address-book {
     right: 330px;
     background-color: @map-highlight-colour !important;
@@ -93,29 +90,18 @@ body {
   }
   //form tool icons
   &.icon-asset {
-    right: 430px;
-    background-color: @form-highlight-colour !important;
-  }
-  &.icon-request {
-    right: 350px;
-    background-color: @form-highlight-colour !important;
-  }
-  &.icon-inspect {
     right: 270px;
     background-color: @form-highlight-colour !important;
   }
-  &.icon-defects {
+  &.icon-planning {
     right: 190px;
     background-color: @form-highlight-colour !important;
   }
-  &.icon-task {
+  &.icon-practical {
     right: 110px;
     background-color: @form-highlight-colour !important;
   }
-  &.icon-clock {
-    right: 30px;
-    background-color: @form-highlight-colour !important;
-  }
+
   &.icon-small {
     position: relative;
     display: inline-block;
@@ -125,12 +111,13 @@ body {
     margin-top: 10px;
     margin-bottom: auto;
   }
-  &.downer-logo {
-    width: 150px;
-    left: 140px;
-    top: 10px;
-    border-radius: 0;
-  }
+}
+
+.downer-logo {
+  position: absolute;
+  bottom: 25px;
+  left: 5px;
+  width: 100px;
 }
 
 .button-row {
@@ -160,7 +147,7 @@ body {
   .powered {
     position: absolute;
     bottom: 15px;
-    padding: 0 10px 0 10px;
+    padding: 0 10px 0 12px;
     span {
       color: @white;
       font-size: 11px;

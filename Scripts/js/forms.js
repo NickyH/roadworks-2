@@ -8,14 +8,23 @@ $('.form-horizontal').on('change', this, check_panel_valid);
 $( '.form-horizontal .container' ).parsley( 'validate');
 $('.selectpicker').selectpicker({ size: 5 });
 $('#bookmark-nav').on('click', 'a', check_form_location);
-$('.referral-icon').on('click', toggle_referral);
-$('.reference-history tr').on('click', open_current_contact_row);
-$('.icon-history').on('click', history_qtip);
 $('.close-form').on('click', warn_close_form);
 $('.cancel-button').on('click', warn_cancel_form);
-$('span.lookup').on('click', open_address_book);
-$('.input-group-addon').on('click', calendar_icon_click); //activate calendar on icon click
-$('.history-button .button').on('click', toggle_history_button);
+
+function toggle_rw_select() {
+  $(this).toggleClass('inactive');
+
+  if($(this).hasClass('inactive')) {
+    $(this).children('.pull-right').html('&#10008');
+    disable_fields($(this));
+  }
+
+  else {
+    $(this).children('.pull-right').html('&#10004');
+    enable_fields($(this));
+  }
+  return false;
+}
 
 function enable_fields(group) {
   var row = $(group).parents('.form-group');
@@ -29,24 +38,69 @@ function disable_fields(group) {
   $(row).children().find('.selectpicker').addClass('disabled');
 }
 
+function insert_rw1_form() {
+  $('#insert-form').empty();
+  $.get('forms/form_jpp.html', function(data) {
+    $('#insert-form').html(data);
+    });
+  var formName = 'jpp'
+  show_correct_ovals(formName);
+  $('html').animate({ scrollTop: 0 });
+}
+
+function insert_rw2_form() {
+  $('#insert-form').empty();
+  $.get('forms/form_pc.html', function(data) {
+    $('#insert-form').html(data);
+    });
+  var formName = 'pc'
+  show_correct_ovals(formName);
+  $('html').animate({ scrollTop: 0 });
+}
+
+function show_correct_ovals(formName) {
+  if (formName === 'jpp') {
+
+    $('a[data-href="#bookmark_details_pl"]').parent('li').show();
+    $('a[data-href="#bookmark_activities"]').parent('li').show();
+    $('a[data-href="#bookmark_planning"]').parent('li').show();
+    $('a[data-href="#bookmark_siteplan"]').parent('li').show();
+    $('a[data-href="#bookmark_map"]').parent('li').show();
+
+    $('a[data-href="#bookmark_details_pc"]').parent('li').hide();
+    $('a[data-href="#bookmark_signoff"]').parent('li').hide();
+  }
+  if (formName === 'pc') {
+    $('a[data-href="#bookmark_details_pc"]').parent('li').show();
+    $('a[data-href="#bookmark_signoff"]').parent('li').show();
+
+    $('a[data-href="#bookmark_details_pl"]').parent('li').hide();
+    $('a[data-href="#bookmark_activities"]').parent('li').hide();
+    $('a[data-href="#bookmark_planning"]').parent('li').hide();
+    $('a[data-href="#bookmark_siteplan"]').parent('li').hide();
+    $('a[data-href="#bookmark_map"]').parent('li').hide();
+  }
+}
+
+// inserts the first form into the form page on initial load of details page
+function show_first_form() {
+  $.get('forms/form_jpp.html', function(data) {
+    $('#insert-form').html(data);
+    });
+  window.location = ('form.html'); //initial refresh
+}
+
 function calendar_icon_click() {
   $(this).parent().children('.form-control').datetimepicker('show');
 }
 
-function toggle_history_button() {
-  if ($(this).hasClass('active')) {
-    $('.button').toggleClass('active');
-    if ($('.button').hasClass('show-closed')) {
-      // attach show closed functionality here
-    }
-    if ($('.button').hasClass('hide-closed')) {
-      // attach hide closed functionality here
-    }
-  }
-  else {
-    return false
-  }
-
+function goto_map() {
+  map_navbar();
+  $('#insert-form').empty();
+  $.get('MapLayer.html', function(data) {
+    $('#insert-map').html(data);
+    });
+  insert_left();
 }
 
 $('.select-all').on('click', function() {
@@ -144,61 +198,41 @@ function check_panel_valid() {
 function check_form_location() {
   if (!$('#bookmark-nav ul').hasClass('disabled')) {
     var href = $(this).attr('data-href');
-    if (href === '#bookmark_location') {
+    if (href === '#bookmark_details_pl') {
       var scrollAmount = ($(href).offset().top) - topOffset;
       $('html, body').animate({ scrollTop: scrollAmount }, 1000);
       oval_border_highlight('#tab1');
     }
-    if (href === '#bookmark_details') {
+    if (href === '#bookmark_activities') {
       var scrollAmount = ($(href).offset().top) - topOffset;
       $('html, body').animate({scrollTop: scrollAmount }, 1500);
       oval_border_highlight('#tab2');
     }
-    if (href === '#bookmark_contact') {
+    if (href === '#bookmark_conditions') {
       var scrollAmount = ($(href).offset().top) - topOffset;
       $('html, body').animate({ scrollTop: scrollAmount }, 1000);
       oval_border_highlight('#tab3');
     }
-    if (href === '#bookmark_condition') {
-      var scrollAmount = ($(href).offset().top) - topOffset;
-      $('html, body').animate({ scrollTop: scrollAmount }, 1000);
-      oval_border_highlight('#tab3');
-    }
-    if (href === '#bookmark_notes') {
+    if (href === '#bookmark_map') {
       var scrollAmount = ($(href).offset().top) - topOffset;
       $('html, body').animate({ scrollTop: scrollAmount }, 1000);
       oval_border_highlight('#tab4');
     }
-    if (href === '#bookmark_closeout') {
+    if (href === '#bookmark_planning') {
       var scrollAmount = ($(href).offset().top) - topOffset;
       $('html, body').animate({ scrollTop: scrollAmount }, 1000);
       oval_border_highlight('#tab5');
     }
-    //timesheet form
-    if (href === '#bookmark_start') {
+    //practical completion form
+    if (href === '#bookmark_details_pc') {
       var scrollAmount = ($(href).offset().top) - topOffset;
       $('html, body').animate({ scrollTop: scrollAmount }, 1000);
-      oval_border_highlight('#tab20');
+      oval_border_highlight('#tab10');
     }
-    if (href === '#bookmark_work') {
+    if (href === '#bookmark_signoff') {
       var scrollAmount = ($(href).offset().top) - topOffset;
       $('html, body').animate({ scrollTop: scrollAmount }, 1000);
-      oval_border_highlight('#tab21');
-    }
-    if (href === '#bookmark_breaks') {
-      var scrollAmount = ($(href).offset().top) - topOffset;
-      $('html, body').animate({ scrollTop: scrollAmount }, 1000);
-      oval_border_highlight('#tab22');
-    }
-    if (href === '#bookmark_end') {
-      var scrollAmount = ($(href).offset().top) - topOffset;
-      $('html, body').animate({ scrollTop: scrollAmount }, 1000);
-      oval_border_highlight('#tab23');
-    }
-    if (href === '#bookmark_review') {
-      var scrollAmount = ($(href).offset().top) - topOffset;
-      $('html, body').animate({ scrollTop: scrollAmount }, 1000);
-      oval_border_highlight('#tab24');
+      oval_border_highlight('#tab11');
     }
   }
 }
@@ -219,14 +253,6 @@ function toggle_oval_colour( thisObj, className) {
   if ($(change_oval_colour).attr('data-href') === ovalName ) {
     $(change_oval_colour).children('div').removeClass('incomplete complete').addClass(className);
   }
-}
-
-function toggle_referral() {
-  $('.row').toggleClass('hidden');
-  $('html body').animate({ scrollTop: 0 });
-  $('#bookmark_closeout').toggleClass('hidden');
-  oval_border_highlight('#tab1');
-  $('.referral-icon').toggleClass('current');
 }
 
 function change_selectpicker_values() {
@@ -255,58 +281,40 @@ function form_navbar() {
   $('.detail-icon').addClass('hidden');
 }
 
-function open_current_contact_row() {
-  if ($(this).hasClass('row-open')) {
-    $(this).removeClass('row-open');
-    $(this).next('tr').remove();
-  } else if (!$(this).hasClass('row-open')) {
-    $(this).addClass('row-open');
-    $(this).after("<tr class='reference-details'><td colspan='8'><span>Vivamus ut arcu" +
-      "posuere, molestie quam et, rhoncus diam. Nunc suscipit porta urna, tincidunt" +
-      "vehicula libero elementum sed. Aliquam vestibulum blandit tortor. Curabitur" +
-      "dolor eget odio ultricies adipiscing et vel ante.</span></td></tr>");
+function get_rw1_page_position() {
+  var details = $('#bookmark_details_pl').offset().top;
+  var activities = $('#bookmark_activities').offset().top;
+  var planning = $('#bookmark_planning').offset().top;
+  var siteplan = $('#bookmark_conditions').offset().top;
+  var map = $('#bookmark_map').offset().top;
+
+  if ($(window).scrollTop() >= (details - topOffset -50) ) {
+    oval_border_highlight('#tab1');
+  }
+  if ($(window).scrollTop() >= (activities - topOffset -50 ) ) {
+    oval_border_highlight('#tab2');
+  }
+  if ($(window).scrollTop() >= (planning - topOffset -50) ) {
+    oval_border_highlight('#tab3');
+  }
+  if ($(window).scrollTop() >= (siteplan - topOffset -50) ) {
+    oval_border_highlight('#tab4');
+  }
+  if ($(window).scrollTop() >= (map - topOffset -50) ) {
+    oval_border_highlight('#tab5');
   }
 }
 
-function history_qtip() {
-  $(this).qtip({
-      content: {
-        text: $('#process-history'),
-        button: 'Close'
-      },
-      show: {
-          modal: {
-              on: true,
-              solo: true
-          },
-          ready: true,
-          event: 'click',
-          effect: function (offset) {
-              $(this).slideDown(300);
-          }
-      },
-      style: {
-          classes: 'qtip-process-history qtip-rounded qtip-shadow qtip-light',
-          tip: {
-            width: 50,
-            height: 30
-        }
-      },
-      hide: {
-          event: 'click',
-          effect: function () {
-              $(this).slideUp(300);
-              $('#process-history').addClass('hidden');
-          }
-      },
-      overwrite: false,
-      position: {
-          my: 'top left',
-          at: 'bottom right',
-          target: $(this)
-      }
-  });
-  $('#process-history').removeClass('hidden');
+function get_rw2_page_position() {
+  var details = $('#bookmark_details_pc').offset().top;
+  var signoff = $('#bookmark_signoff').offset().top;
+
+  if ($(window).scrollTop() >= (details - topOffset -50) ) {
+    oval_border_highlight('#tab10');
+  }
+  if ($(window).scrollTop() >= (signoff - topOffset -50 ) ) {
+    oval_border_highlight('#tab11');
+  }
 }
 
 function warn_cancel_form() {
@@ -325,179 +333,6 @@ function warn_close_form() {
   });
 }
 
-function open_address_book() {
-  bootbox.dialog({
-    message: "Search for contacts...",
-    title: "Contact Address Book",
-    buttons: {
-      success: {
-        label: "Search",
-        className: "btn-success",
-        callback: function() {
-          Example.show("great success");
-        }
-      },
-      danger: {
-        label: "Cancel",
-        className: "btn-danger",
-        callback: function() {
-          Example.show("uh oh, look out!");
-        }
-      },
-      main: {
-        label: "Done",
-        className: "btn-primary",
-        callback: function() {
-          Example.show("Primary button");
-        }
-      }
-    }
-  });
-}
-
-function skip_to_details() {
-  var details = $('#bookmark_details').offset().top;
-  $(window).scrollTop((details - 200));
-}
-
-
-function table_search(thisObj, tableID) {
-  var $rows = $("#"+tableID+" tr");
-  var val = '^(?=.*\\b' + $.trim($(thisObj).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
-      reg = RegExp(val, 'i'),
-      text;
-
-  $rows.show().filter(function() {
-      text = $(this).text().replace(/\s+/g, ' ');
-      return !reg.test(text);
-  }).hide();
-  $('thead tr').show();
-}
-
-function get_CR_page_position() {
-  var location = $('#bookmark_location').offset().top;
-  var details = $('#bookmark_details').offset().top;
-  var contact = $('#bookmark_contact').offset().top;
-  var notes = $('#bookmark_notes').offset().top;
-  var closeout = $('#bookmark_closeout').offset().top;
-
-  if ($(window).scrollTop() >= (location - topOffset -50) ) {
-    oval_border_highlight('#tab1');
-  }
-  if ($(window).scrollTop() >= (details - topOffset -50 ) ) {
-    oval_border_highlight('#tab2');
-  }
-  if ($(window).scrollTop() >= (contact - topOffset -50) ) {
-    oval_border_highlight('#tab3');
-  }
-  if ($(window).scrollTop() >= (notes - topOffset -50) ) {
-    oval_border_highlight('#tab4');
-  }
-  if ($(window).scrollTop() >= (closeout - topOffset -50) ) {
-    oval_border_highlight('#tab5');
-  }
-}
-
-function get_defect_page_position() {
-  var location = $('#bookmark_location').offset().top;
-  var details = $('#bookmark_details').offset().top;
-  var condition = $('#bookmark_condition').offset().top;
-  var notes = $('#bookmark_notes').offset().top;
-  var referral = $('#bookmark_referral').offset().top;
-
-  if ($(window).scrollTop() >= (location - topOffset -50) ) {
-    oval_border_highlight('#tab1');
-  }
-  if ($(window).scrollTop() >= (details - topOffset -50 ) ) {
-    oval_border_highlight('#tab2');
-  }
-  if ($(window).scrollTop() >= (condition - topOffset -50) ) {
-    oval_border_highlight('#tab3');
-  }
-  if ($(window).scrollTop() >= (notes - topOffset -50) ) {
-    oval_border_highlight('#tab4');
-  }
-  if ($(window).scrollTop() >= (referral - topOffset -50) ) {
-    oval_border_highlight('#tab5');
-  }
-}
-
-function get_inspection_page_position() {
-  var location = $('#bookmark_location').offset().top;
-  var details = $('#bookmark_details').offset().top;
-  var contact = $('#bookmark_contact').offset().top;
-  var notes = $('#bookmark_notes').offset().top;
-  var closeout = $('#bookmark_closeout').offset().top;
-
-  if ($(window).scrollTop() >= (location - topOffset -50) ) {
-    oval_border_highlight('#tab1');
-  }
-  if ($(window).scrollTop() >= (details - topOffset -50 ) ) {
-    oval_border_highlight('#tab2');
-  }
-  if ($(window).scrollTop() >= (contact - topOffset -50) ) {
-    oval_border_highlight('#tab3');
-  }
-  if ($(window).scrollTop() >= (notes - topOffset -50) ) {
-    oval_border_highlight('#tab4');
-  }
-  if ($(window).scrollTop() >= (closeout - topOffset -50) ) {
-    oval_border_highlight('#tab5');
-  }
-}
-
-function get_task_page_position() {
-  var taskdetails = $('#bookmark_taskdetails').offset().top;
-  var extdetails = $('#bookmark_extdetails').offset().top;
-  var loe = $('#bookmark_loe').offset().top;
-  var wip = $('#bookmark_wip').offset().top;
-  var traffic = $('#bookmark_traffic').offset().top;
-  var tasknotes = $('#bookmark_tasknotes').offset().top;
-
-  if ($(window).scrollTop() >= (taskdetails - topOffset -50) ) {
-    oval_border_highlight('#tab10');
-  }
-  if ($(window).scrollTop() >= (extdetails - topOffset -50 ) ) {
-    oval_border_highlight('#tab11');
-  }
-  if ($(window).scrollTop() >= (loe - topOffset -50) ) {
-    oval_border_highlight('#tab12');
-  }
-  if ($(window).scrollTop() >= (wip - topOffset -50) ) {
-    oval_border_highlight('#tab13');
-  }
-  if ($(window).scrollTop() >= (traffic - topOffset -50) ) {
-    oval_border_highlight('#tab14');
-  }
-  if ($(window).scrollTop() >= (tasknotes - topOffset -50) ) {
-    oval_border_highlight('#tab15');
-  }
-}
-
-function get_timesheet_page_position() {
-  var start = $('#bookmark_start').offset().top;
-  var work = $('#bookmark_work').offset().top;
-  var breaks = $('#bookmark_breaks').offset().top;
-  var end = $('#bookmark_end').offset().top;
-  var review = $('#bookmark_review').offset().top;
-
-  if ($(window).scrollTop() >= (start - topOffset -50 ) ) {
-    oval_border_highlight('#tab20');
-  }
-  if ($(window).scrollTop() >= (work - topOffset -50) ) {
-    oval_border_highlight('#tab21');
-  }
-  if ($(window).scrollTop() >= (breaks - topOffset -50) ) {
-    oval_border_highlight('#tab22');
-  }
-  if ($(window).scrollTop() >= (end - topOffset -50) ) {
-    oval_border_highlight('#tab23');
-  }
-  if ($(window).scrollTop() >= (review - topOffset -50) ) {
-    oval_border_highlight('#tab24');
-  }
-}
-
 function check_this_panel_required(thisObj) {
   var thisPanel = $(thisObj);
   var required = false
@@ -510,7 +345,6 @@ function check_this_panel_required(thisObj) {
     });
   return required;
 }
-
 
 // datetimepicker
 $('.insert-time-picker').datetimepicker({
@@ -548,44 +382,12 @@ $('.insert-picker').datetimepicker({
 });
 
 
-//task form functions
-
-$('td a span.glyphicon-play').on('click', highlight_current_task);
-$('td a span.glyphicon-play.breaks').on('click', highlight_current_break);
-$('.glyphicon-picture').on('click', show_task_map);
-$('.member-timesheet-row').on('click', show_member_timesheet);
-
-function highlight_current_break() {
-  // event.preventDefault();
-  $('.breaks-row.current-break').removeClass('current-break');
-  console.log($(this).parents());
-  $(this).parents('.breaks-row').addClass('current-break');
-}
-
-function highlight_current_task() {
-  // event.preventDefault();
-  $('.task-row.current-task').removeClass('current-task');
-  console.log($(this).parents());
-  $(this).parents('.task-row').addClass('current-task');
-}
-
-function show_task_map() {
-  bootbox.confirm('<img class="temp-task-map" src="../../Content/images/OsmMap_Feature.PNG">', function (response) {});
-}
-
-function show_member_timesheet() {
-  // event.preventDefault();
-  $('.member-timesheet-panel').toggleClass('hidden');
-}
-
-
 function goto_map() {
   map_navbar();
   $('#insert-form').empty();
   $.get('MapLayer.html', function(data) {
     $('#insert-map').html(data);
     });
-  $('#insert-map').trigger('create');
   insert_left();
 }
 

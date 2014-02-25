@@ -1,7 +1,7 @@
 <div class="content_div">
 
   <div class="form-buttons">
-    <div class="form-title"><img class="form-head-icon" src="../Content/images/icons/icon-inspection-white.png"><span>CRFM053 Job Preliminary Planning Form</span>
+    <div class="form-title"><img class="form-head-icon" src="../Content/images/icons/icon-planning-white.png"><span>CRFM053 Job Preliminary Planning</span>
       <span class="cr-id">G6 01 09</span>
     </div>
     <input type="submit" value="Cancel" class="form-button cancel-button" data-role="button" />
@@ -410,7 +410,7 @@
     <!-- end form row 2 -->
 
     <!-- form row 3 -->
-    <div class="row" id="bookmark_siteplan">
+    <div class="row" id="bookmark_conditions">
       <div class="col-12">
         <div class="row-fluid">
 
@@ -421,7 +421,7 @@
               <!-- numbered circle in each form panel-->
               <div class="text-circle">
                 <div class="text-in-circle">
-                  Site Plan
+                  Conditions
                 </div>
               </div>
 
@@ -897,7 +897,7 @@
 
   $('.pill-select').on('click', toggle_rw_select);
 
-  $('#map').bind('tapone', function () { event.preventDefault(); });
+  $('#map').bind('tapone', function () { return false; });
 
   $('.form-container').on('DOMMouseScroll mousewheel', get_rw1_page_position);
   $('.form-container').bind('swipemove',get_rw1_page_position);
