@@ -162,10 +162,10 @@ function category_live_search() {
 function goto_forms() {
   form_navbar();
   $('#insert-map').empty();
-  $.get('forms/form_jpp.html', function(data) {
+  $.get('forms/form_asset.html', function(data) {
     $('#insert-form').html(data);
     });
-  var formName = 'jpp'
+  var formName = 'asset'
   show_correct_ovals(formName);
 }
 

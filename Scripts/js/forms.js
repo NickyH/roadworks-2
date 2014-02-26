@@ -38,7 +38,17 @@ function disable_fields(group) {
   $(row).children().find('.selectpicker').addClass('disabled');
 }
 
-function insert_rw1_form() {
+function insert_asset_form() {
+  $('#insert-form').empty();
+  $.get('forms/form_asset.html', function(data) {
+    $('#insert-form').html(data);
+    });
+  var formName = 'asset'
+  show_correct_ovals(formName);
+  $('html').animate({ scrollTop: 0 });
+}
+
+function insert_jpp_form() {
   $('#insert-form').empty();
   $.get('forms/form_jpp.html', function(data) {
     $('#insert-form').html(data);
@@ -48,7 +58,7 @@ function insert_rw1_form() {
   $('html').animate({ scrollTop: 0 });
 }
 
-function insert_rw2_form() {
+function insert_completion_form() {
   $('#insert-form').empty();
   $.get('forms/form_pc.html', function(data) {
     $('#insert-form').html(data);
@@ -59,12 +69,26 @@ function insert_rw2_form() {
 }
 
 function show_correct_ovals(formName) {
+  if (formName === 'asset') {
+
+    $('a[data-href="#bookmark_details_asset"]').parent('li').show();
+
+    $('a[data-href="#bookmark_details_pl"]').parent('li').hide();
+    $('a[data-href="#bookmark_activities"]').parent('li').hide();
+    $('a[data-href="#bookmark_planning"]').parent('li').hide();
+    $('a[data-href="#bookmark_conditions"]').parent('li').hide();
+    $('a[data-href="#bookmark_map"]').parent('li').hide();
+
+    $('a[data-href="#bookmark_details_pc"]').parent('li').hide();
+    $('a[data-href="#bookmark_signoff"]').parent('li').hide();
+  }
   if (formName === 'jpp') {
+    $('a[data-href="#bookmark_details_asset"]').parent('li').hide();
 
     $('a[data-href="#bookmark_details_pl"]').parent('li').show();
     $('a[data-href="#bookmark_activities"]').parent('li').show();
     $('a[data-href="#bookmark_planning"]').parent('li').show();
-    $('a[data-href="#bookmark_siteplan"]').parent('li').show();
+    $('a[data-href="#bookmark_conditions"]').parent('li').show();
     $('a[data-href="#bookmark_map"]').parent('li').show();
 
     $('a[data-href="#bookmark_details_pc"]').parent('li').hide();
@@ -74,17 +98,19 @@ function show_correct_ovals(formName) {
     $('a[data-href="#bookmark_details_pc"]').parent('li').show();
     $('a[data-href="#bookmark_signoff"]').parent('li').show();
 
+    $('a[data-href="#bookmark_details_asset"]').parent('li').hide();
+
     $('a[data-href="#bookmark_details_pl"]').parent('li').hide();
     $('a[data-href="#bookmark_activities"]').parent('li').hide();
     $('a[data-href="#bookmark_planning"]').parent('li').hide();
-    $('a[data-href="#bookmark_siteplan"]').parent('li').hide();
+    $('a[data-href="#bookmark_conditions"]').parent('li').hide();
     $('a[data-href="#bookmark_map"]').parent('li').hide();
   }
 }
 
 // inserts the first form into the form page on initial load of details page
 function show_first_form() {
-  $.get('forms/form_jpp.html', function(data) {
+  $.get('forms/form_asset.html', function(data) {
     $('#insert-form').html(data);
     });
   window.location = ('form.html'); //initial refresh
@@ -195,6 +221,13 @@ function check_panel_valid() {
 function check_form_location() {
   if (!$('#bookmark-nav ul').hasClass('disabled')) {
     var href = $(this).attr('data-href');
+    //asset form
+    if (href === '#bookmark_details_asset') {
+      var scrollAmount = ($(href).offset().top) - topOffset;
+      $('html, body').animate({ scrollTop: scrollAmount }, 1000);
+      oval_border_highlight('#tab0');
+    }
+    // planning form
     if (href === '#bookmark_details_pl') {
       var scrollAmount = ($(href).offset().top) - topOffset;
       $('html, body').animate({ scrollTop: scrollAmount }, 1000);
@@ -396,3 +429,15 @@ function map_navbar() {
   $('.detail-icon').removeClass('hidden');
   $('.map-icon').addClass('hidden');
 }
+
+// get filename when file is attached and display it in the next form-group
+  $('input[type=file]').change(function(e){
+    $in=$(this);
+    var filename = $in.val().split('\\').pop();
+    if (filename === "No files added" || filename === "" ) {
+      filename = recentfile;
+    }
+    $in.parents('.form-group').next('.filename').children().find('.filename-text').html(filename);
+    $in.parents('.form-group').next('.filename').children().find('.filename-delete').html('x');
+    var recentfile = filename
+  });
