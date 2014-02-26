@@ -163,9 +163,6 @@ function add_cross_to_required_forms() {
 
 function check_panel_valid() {
   if ($(this).children('.form-group').find('.search')) {
-    var tableID = $(this).children('.form-group').find('.search').parents('.form-horizontal').children('table').attr('id');
-    var thisObj = $(this).children('.form-group').find('.search');
-    table_search(thisObj, tableID);
   }
   var icon = $(this).children().last();
   var rowValid = false;
