@@ -39,6 +39,7 @@ function disable_fields(group) {
 }
 
 function insert_asset_form() {
+  $('#insert-map').empty();
   $('#insert-form').empty();
   $.get('forms/form_asset.html', function(data) {
     $('#insert-form').html(data);
@@ -122,10 +123,7 @@ function calendar_icon_click() {
 
 function goto_forms() {
   form_navbar();
-  $('#insert-map').empty();
-  $.get('forms/form_asset.html', function(data) {
-    $('#insert-form').html(data);
-    });
+  insert_asset_form();
 }
 
 $('.select-all').on('click', function() {
@@ -304,6 +302,8 @@ function form_navbar() {
   $('.icon-map').addClass('hidden');
   $('.icon-form').removeClass('hidden');
   $('.left-bar-icons').addClass('hidden');
+  $('#bookmark_nav li a').removeClass('hidden');
+  $('.oval-text').removeClass('hidden');
   $('.map-icon').removeClass('hidden');
   $('.detail-icon').addClass('hidden');
 }
