@@ -120,13 +120,12 @@ function calendar_icon_click() {
   $(this).parent().children('.form-control').datetimepicker('show');
 }
 
-function goto_map() {
-  map_navbar();
-  $('#insert-form').empty();
-  $.get('MapLayer.html', function(data) {
-    $('#insert-map').html(data);
+function goto_forms() {
+  form_navbar();
+  $('#insert-map').empty();
+  $.get('forms/form_asset.html', function(data) {
+    $('#insert-form').html(data);
     });
-  insert_left();
 }
 
 $('.select-all').on('click', function() {
@@ -305,8 +304,6 @@ function form_navbar() {
   $('.icon-map').addClass('hidden');
   $('.icon-form').removeClass('hidden');
   $('.left-bar-icons').addClass('hidden');
-  $('#bookmark_nav li a').removeClass('hidden');
-  $('.oval-text').removeClass('hidden');
   $('.map-icon').removeClass('hidden');
   $('.detail-icon').addClass('hidden');
 }
