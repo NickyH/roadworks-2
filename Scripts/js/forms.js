@@ -146,8 +146,6 @@ $("input[type='text']").on("click", function () {
   $(this).select();
 });
 
-
-
 $(".checkbox label input").change(function() {
     var boxes = $(".action-checkbox").click(function(){
       boxes.not(this).attr('checked', false);
@@ -306,6 +304,8 @@ function form_navbar() {
   $('.oval-text').removeClass('hidden');
   $('.map-icon').removeClass('hidden');
   $('.detail-icon').addClass('hidden');
+  $('.icon-addclient').addClass('hidden');
+  $('.icon-addjob').addClass('hidden');
 }
 
 function get_rw1_page_position() {
@@ -410,12 +410,7 @@ $('.insert-picker').datetimepicker({
 
 
 function goto_map() {
-  map_navbar();
-  $('#insert-form').empty();
-  $.get('MapLayer.html', function(data) {
-    $('#insert-map').html(data);
-    });
-  insert_left();
+  window.location = '/';
 }
 
 function map_navbar() {
@@ -438,3 +433,20 @@ function map_navbar() {
     $in.parents('.form-group').next('.filename').children().find('.filename-delete').html('x');
     var recentfile = filename
   });
+
+
+function insert_addclient_form () {
+  $('#insert-form').empty();
+  $('#insert-map').empty();
+  $.get('forms/form_addclient.html', function(data) {
+    $('#insert-form').html(data);
+  });
+}
+
+function insert_addjob_form () {
+  $('#insert-form').empty();
+  $('#insert-map').empty();
+  $.get('forms/form_addjob.html', function(data) {
+    $('#insert-form').html(data);
+  });
+}

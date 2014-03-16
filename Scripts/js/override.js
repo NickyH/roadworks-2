@@ -2,7 +2,6 @@ var topOffset = 170;
 
 //dom ready functions
 $(function(){
-  insert_map();
   insert_left();
   insert_top();
   $('ul[id^="accordion-"]').dcAccordion();
@@ -11,10 +10,6 @@ $(function(){
   $('.category-select-list a').on('click', show_category_options_qtip);
   $('#category-search').on('keyup', category_live_search);
 });
-
-function refresh_history_accordion() {
-  $('.history-tree-wrapper').removeClass('invisible');
-}
 
 function uncheck_all_others() {
   $('.category-checkbox input[type="checkbox"]').removeAttr('checked');
@@ -45,7 +40,6 @@ function map_navbar() {
   $('.detail-icon').removeClass('hidden');
   $('.map-icon').addClass('hidden');
 }
-
 
 // add current class to image pages-icons class on click
 function show_active_tab() {
@@ -211,12 +205,6 @@ function change_tab_content() {
   $(this).addClass('current');
 }
 
-function insert_map() {
-  $.get('MapLayer.html', function(data) {
-    $('#insert-map').html(data);
-    });
-}
-
 function insert_left() {
   $('#insert-left').empty();
   $.get('left_bar.html', function(data) {
@@ -228,9 +216,4 @@ function insert_top() {
   $.get('top_bar.html', function(data) {
     $('#insert-top').html(data);
   });
-}
-
-function refresh_map()
-{
-  window.location = ('index.html');
 }

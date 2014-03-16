@@ -9,20 +9,14 @@ body {
 
 //map styling
 
-#insert-map {
-  position: fixed;
-  left: 120px;
-  top: 100px;
-  width: 904px;
-  height: auto;
-}
-
 #map {
-  height: 400px;
-  width: auto;
-  margin-left: 50px;
-  margin-right: 50px;
-}
+  img {
+    min-height: 900px;
+    width: 100%;
+    margin-left: 120px;
+    overflow: none;
+    }
+ }
 
 .hidden {
   display: none;
@@ -62,6 +56,15 @@ body {
   margin: 24px;
   width: 50px;
   opacity: 0.8;
+  //map page icons
+  &.icon-addclient {
+    right: 190px;
+    background-color: @form-highlight-colour !important;
+  }
+  &.icon-addjob {
+    right: 110px;
+    background-color: @form-highlight-colour !important;
+  }
   //form tool icons
   &.icon-asset {
     right: 270px;
@@ -75,7 +78,6 @@ body {
     right: 110px;
     background-color: @form-highlight-colour !important;
   }
-
   &.icon-small {
     position: relative;
     display: inline-block;
@@ -211,7 +213,7 @@ body {
     width: 80px;
     height: 80px;
     margin-left: 20px;
-    background-color: @form-icon-colour !important;
+    background-color: @map-icon-colour !important;
     margin-top: 10px;
     &.inactive {
       display: none;
@@ -497,6 +499,9 @@ img.downer-logo {
     @media @widthLarge {
       width: 95% !important;
     }
+  }
+  &.no-tab {
+    padding-top: 30px;
   }
 }
 
@@ -1034,66 +1039,6 @@ input[type="date"] {
   -webkit-appearance: none;
 }
 
-//bootstrap-select overrides
-
-.btn-group.bootstrap-select {
-  margin-bottom: 0;
-}
-
-.bootstrap-select.btn-group > .disabled {
-  background-color: #eee !important;
-}
-
-.input-group {
-  margin-bottom: 10px;
-}
-
-.item {
-  .input-group-addon, .input-group-btn, .input-group, .form-control {
-  display: inline-block;
-  }
-  input[type="checkbox"] {
-  margin-left: 10px;
-  }
-}
-
-input.action-checkbox {
-  margin: 0;
-  margin-bottom: 10px;
-}
-
-.closeout-left {
-  background-color: @white;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  height: 30px;
-}
-.closeout-middle {
-  background-color: @white;
-  height: 30px;
-}
-.closeout-right {
-  background-color: @white;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  height: 30px;
-}
-
-// bootstrap accordion overrides
-
-.panel-group {
-  div {
-    display: block !important;
-  }
-  width: 150px;
-}
-
-.panel-body {
-  &.sub-category-body {
-  padding: 0;
-  }
-}
-
 //form validation with parsely js
 
 input[data-required="true"] {
@@ -1588,4 +1533,64 @@ tr.current-break {
 
 img.temp-task-map {
   height: 300px;
+}
+
+//bootstrap-select overrides
+
+.btn-group.bootstrap-select {
+  margin-bottom: 0;
+}
+
+.bootstrap-select.btn-group > .disabled {
+  background-color: #eee !important;
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+.item {
+  .input-group-addon, .input-group-btn, .input-group, .form-control {
+  display: inline-block;
+  }
+  input[type="checkbox"] {
+  margin-left: 10px;
+  }
+}
+
+input.action-checkbox {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.closeout-left {
+  background-color: @white;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  height: 30px;
+}
+.closeout-middle {
+  background-color: @white;
+  height: 30px;
+}
+.closeout-right {
+  background-color: @white;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  height: 30px;
+}
+
+// bootstrap accordion overrides
+
+.panel-group {
+  div {
+    display: block !important;
+  }
+  width: 150px;
+}
+
+.panel-body {
+  &.sub-category-body {
+  padding: 0;
+  }
 }
