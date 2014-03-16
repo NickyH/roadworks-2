@@ -28,7 +28,7 @@
                   <div class="form-group">
                     <label class="col-sm-4 control-label">Select Client</label>
                     <div class="col-sm-8">
-                      <select class="selectpicker form-control show-tick" title='' disabled>
+                      <select class="selectpicker form-control show-tick" title=''>
                         <option>G6 01 09</option>
                         <option>G10 00 04</option>
                         <option>G11 01 05</option>
@@ -46,28 +46,22 @@
                   </div>
 
                   <div class="form-group">
-                    <label class="col-sm-4 control-label">From / Sect</label>
+                    <label class="col-sm-4 control-label">Priority</label>
                     <div class="col-sm-8">
-                      <input class="form-control" disabled></input>
+                      <select class="selectpicker form-control show-tick" title=''>
+                        <option>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                      </select>
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="col-sm-4 control-label">To / Sect</label>
+                    <label class="col-sm-4 control-label">Billing Reference</label>
                     <div class="col-sm-8">
-                      <input class="form-control" disabled></input>
+                      <input class="form-control"></input>
                     </div>
                   </div>
-
-                  <div class="form-group">
-                    <label class="col-sm-4 control-label">Map Ref</label>
-                    <div class="col-sm-8">
-                      <input class="form-control" disabled></input>
-                    </div>
-                  </div>
-
-                </div>
-                <div class="form-column col-lg-6 col-md-6 col-sm-12">
 
                   <div class="form-group">
                     <label class="col-sm-4 control-label">Client Rep</label>
@@ -77,9 +71,68 @@
                   </div>
 
                   <div class="form-group">
+                    <label class="col-sm-4 control-label">Client Rep Phone</label>
+                    <div class="col-sm-8">
+                      <input class="form-control"></input>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
                     <label class="col-sm-4 control-label">DEW Rep</label>
                     <div class="col-sm-8">
                       <input class="form-control"></input>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label">DEW Rep Phone</label>
+                    <div class="col-sm-8">
+                      <input class="form-control"></input>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label">Attachment</label>
+                    <div class="col-sm-8">
+                      <input type="file" class="form-control">
+                      <span class='btn btn-info file-select'>Select File</span>
+                      <span class='btn btn-primary attachment'><span class="glyphicon glyphicon-plus"></span></span>
+                      <span class='btn btn-success attachment'><span class="glyphicon glyphicon-ok"></span></span>
+                      <span class='btn btn-danger attachment'><span class="glyphicon glyphicon-remove"></span></span>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="form-column col-lg-6 col-md-6 col-sm-12">
+
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label">Location</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" placeholder="Road">
+                    </div>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" placeholder="Suburb">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label">From / Sect</label>
+                    <div class="col-sm-8">
+                      <input class="form-control" ></input>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label">To / Sect</label>
+                    <div class="col-sm-8">
+                      <input class="form-control" ></input>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label">Map Ref</label>
+                    <div class="col-sm-8">
+                      <input class="form-control" disabled></input>
                     </div>
                   </div>
 
@@ -106,6 +159,18 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label">Notes</label>
+                    <div class="col-sm-8">
+                      <textarea class="form-control" rows="5"></textarea>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="form-column col-lg-6 col-md-6 col-sm-12">
+
+
 
                 </div>
                 <!--end form column-->
