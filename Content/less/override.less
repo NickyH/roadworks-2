@@ -366,26 +366,6 @@ body {
   padding-left: 2%;
   padding-right: 4%;
   z-index: 2;
-  &.incomplete {
-    border: 3px solid @cancel-button-colour;
-    background-color: @cancel-button-colour;
-    .text-in-circle {
-      margin-top: 5px;
-      color: @white;
-      font-style: normal;
-      letter-spacing: 2px;
-    }
-  }
-  &.complete {
-    border: 3px solid @save-button-colour;
-    background-color: @save-button-colour;
-    .text-in-circle {
-      margin-top: 5px;
-      color: @white;
-      font-style: normal;
-      letter-spacing: 2px;
-    }
-  }
 }
 
 #details-page {
@@ -531,6 +511,7 @@ img.downer-logo {
     position: relative;
     left: 180px;
     margin-top: 10px;
+    max-width: 400px;
     display: inline-block;
     font: @form-header-font;
     font-weight: bold;
@@ -547,10 +528,17 @@ img.downer-logo {
       }
     }
     @media @widthMediumLarge {
-      font: @form-header-font-medium;
-      font-weight: bold;
-      max-width: 25%;
-      left: 150px;
+      max-width: 200px;
+      font: @form-header-font-2;
+      line-height: 20px;
+      span {
+        line-height: inherit;
+      }
+    }
+    @media @widthLarge {
+      max-width: 300px;
+      font: @form-header-font-2;
+      line-height: 20px;
       span {
         line-height: inherit;
       }
@@ -582,6 +570,10 @@ img.downer-logo {
     font: @form-button-font;
     color: @white;
     @media @widthMediumLarge {
+      height: 30px;
+      min-width: 120px;
+    }
+    @media @widthLarge {
       height: 30px;
       min-width: 120px;
     }
