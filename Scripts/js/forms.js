@@ -459,7 +459,7 @@ function insert_addjob_form () {
 function show_form_saved () {
   $(this).parents('.form-buttons').next('.form-validation-bar').children('.form-validation-text').removeClass('hidden');
   $(this).parents('.form-buttons').next('.form-validation-bar').children('.validation-errors-list').addClass('hidden');
-  $(this).parents('.form-buttons').next('.form-validation-bar').addClass('saved').slideDown(500).fadeOut(100).fadeIn(200).fadeOut(100).fadeIn(200).delay(4000).fadeOut(2000).slideUp();
+  $(this).parents('.form-buttons').next('.form-validation-bar').addClass('saved').slideDown(500).fadeOut(100).fadeIn(200).fadeOut(100).fadeIn(200);
 }
 
 function show_form_errors () {
