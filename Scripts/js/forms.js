@@ -10,6 +10,11 @@ $('.selectpicker').selectpicker({ size: 5 });
 $('#bookmark-nav').on('click', 'a', check_form_location);
 $('.close-form').on('click', warn_close_form);
 $('.cancel-button').on('click', warn_cancel_form);
+//validation bar functions
+$('.form-validation-bar').slideUp(1);
+$('.save-button').on('click', show_form_saved);
+// $('.save-button').on('click', show_form_errors);
+$('.validation-close').on('click', close_validation_bar);
 
 function toggle_rw_select() {
   $(this).toggleClass('inactive');
@@ -449,4 +454,22 @@ function insert_addjob_form () {
   $.get('forms/form_addjob.html', function(data) {
     $('#insert-form').html(data);
   });
+}
+
+function show_form_saved () {
+  $(this).parents('.form-buttons').next('.form-validation-bar').children('.form-validation-text').removeClass('hidden');
+  $(this).parents('.form-buttons').next('.form-validation-bar').children('.validation-errors-list').addClass('hidden');
+  $(this).parents('.form-buttons').next('.form-validation-bar').addClass('saved').slideDown(500).fadeOut(100).fadeIn(200).fadeOut(100).fadeIn(200).delay(4000).fadeOut(2000).slideUp();
+}
+
+function show_form_errors () {
+  $(this).parents('.form-buttons').next('.form-validation-bar').children('.validation-errors-list').removeClass('hidden');
+  $(this).parents('.form-buttons').next('.form-validation-bar').children('.form-validation-text').addClass('hidden');
+  $(this).parents('.form-buttons').next('.form-validation-bar').addClass('error').slideDown(500).fadeOut(100).fadeIn(200).fadeOut(100).fadeIn(200);
+}
+
+function close_validation_bar () {
+  $(this).parents('.form-validation-bar').slideUp(1);
+  $(this).parents('.form-buttons').next('.form-validation-bar').children('.form-validation-text').addClass('hidden');
+  $(this).parents('.form-buttons').next('.form-validation-bar').children('.validation-errors-list').addClass('hidden');
 }

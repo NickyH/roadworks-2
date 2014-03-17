@@ -596,6 +596,50 @@ img.downer-logo {
   }
 }
 
+.form-validation-bar {
+  width: 100%;
+  min-height: 70px;
+  height: fit-content;
+  box-shadow: 1px 1px 1px grey;
+  position: fixed;
+  top: 100px;
+  left: 120px;
+  z-index: 100004;
+  &.saved {
+    background-color: @save-button-colour;
+  }
+  &.error {
+    background-color: @cancel-button-colour;
+  }
+  .form-validation-text {
+    position: relative;
+    color: @white;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 70px;
+    text-align: center;
+    width: 100%;
+  }
+  .validation-errors-list {
+    position: relative;
+    color: @white;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px;
+    text-align: center;
+    width: 100%;
+  }
+  .validation-close {
+    font-size: 60px;
+    position: fixed;
+    right: 20px;
+    top: 100px;
+    line-height: 60px;
+    color: @white;
+    cursor: pointer;
+  }
+}
+
 .form-head-icon {
   position: absolute;
   left: 0;
