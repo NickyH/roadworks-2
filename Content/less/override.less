@@ -7,6 +7,84 @@ body {
   font-family: @font-family-main;
 }
 
+//login panel
+
+.container-fluid {
+  &.login-container {
+    display: block;
+    float: right;
+    height: 100%;
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 100px;
+    background-color: @background-main;
+    }
+  }
+
+.login-icon {
+  position: absolute;
+  left: -10px;
+  top: -12px;
+  width: 40px;
+  background-color: @form-highlight-colour;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.login-title {
+    span {
+      line-height: 33px;
+    }
+    padding-left: 40px;
+    position: relative;
+    left: 10%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    font: @form-header-font;
+    font-weight: bold;
+}
+
+.login-dtims {
+  display: inline-block;
+  font-size: 12px;
+  margin-left: 20px;
+}
+
+.form-panel.login {
+  min-width: 587px;
+  width: 587px;
+}
+
+.container.login {
+  padding: 20px;
+  padding-left: 10px;
+  min-width: 587px;
+  width: 587px;
+}
+
+li.active {
+  margin-bottom: 20px;
+  min-width: 158px;
+  a.pill-select {
+    &.inactive {
+      background-color: @white-medium;
+      color: black;
+      border: 1px solid @grey-medium;
+    }
+  }
+  a.login-select {
+    &.inactive {
+      background-color: @save-button-colour;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      border: 1px solid @grey-medium;
+    }
+  }
+}
+
 //map styling
 
 #map {
