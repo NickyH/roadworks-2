@@ -31,6 +31,20 @@ function toggle_rw_select() {
   return false;
 }
 
+function prevent_disable_dropdown() {
+  var select = $(this).parents('.form-group').children('.pill-select');
+  if ($(select).hasClass('inactive')) {
+    return false
+  }
+  else {
+    $(this).children('.dropdown-menu').children('.dropdown-menu.inner').children('li').removeClass('disabled');
+  }
+}
+
+function prevent_hover_grey() {
+  $(this).children('button').css('background-color', 'white');
+}
+
 function enable_fields(group) {
   var row = $(group).parents('.form-group');
   $(row).children().find('.form-control').removeAttr('disabled');

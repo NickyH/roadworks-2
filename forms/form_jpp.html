@@ -882,6 +882,9 @@
 <script src="../Scripts/js/forms.js"></script>
 
 <script>
+  $('.bootstrap-select').on('click', prevent_disable_dropdown );
+  $('.bootstrap-select').on('mouseover', prevent_hover_grey );
+
   $('.pill-select').on('click', toggle_rw_select);
 
   $('#map').bind('tapone', function () { return false; });
