@@ -2,9 +2,14 @@
 // @import "globals_dark.less"; // use for dark theme, and comment out globals_light.less
 @import "globals_light.less"; // use for light theme and comment out globals_dark.less
 
+html {
+  height: 100%
+}
+
 body {
   background-color: @white-medium;
   font-family: @font-family-main;
+  min-height: 100%;
 }
 
 //login panel
@@ -88,12 +93,20 @@ li.active {
 //map styling
 
 #map {
-  img {
-    min-height: 900px;
-    width: 100%;
-    margin-left: 120px;
-    overflow: none;
-    }
+  width: 100%;
+  min-height: 1200px;
+  background-image: url(../images/sa-map.jpg);
+  background-repeat: no-repeat;
+  background-position: 120px 70px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+ }
+
+ #insert-map {
+  width: 100%;
+  min-height: 100px;
  }
 
 .hidden {
@@ -1009,7 +1022,7 @@ input[name="rw1-check"] {
 }
 
 .invisible {
-  visibility: hidden;
+  display: none;
   min-width: 100px !important;
 }
 
