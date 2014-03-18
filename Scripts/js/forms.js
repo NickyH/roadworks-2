@@ -42,7 +42,13 @@ function prevent_disable_dropdown() {
 }
 
 function prevent_hover_grey() {
-  $(this).children('button').css('background-color', 'white');
+  var select = $(this).parents('.form-group').children('.pill-select');
+  if ($(select).hasClass('inactive')) {
+    return false
+  }
+  else {
+    $(this).children('button').css('background-color', 'white');
+  }
 }
 
 function enable_fields(group) {
