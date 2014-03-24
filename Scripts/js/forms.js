@@ -6,7 +6,13 @@ disable_datepickers();
 $('.form-horizontal').on('keyup', this, check_panel_valid);
 $('.form-horizontal').on('change', this, check_panel_valid);
 $( '.form-horizontal .container' ).parsley( 'validate');
-$('.selectpicker').selectpicker({ size: 5 });
+$('.selectpicker').selectpicker({
+    size: 'auto',
+    dropupAuto: false
+});
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+    $('.selectpicker').selectpicker('mobile');
+}
 $('#bookmark-nav').on('click', 'a', check_form_location);
 $('.close-form').on('click', warn_close_form);
 $('.cancel-button').on('click', warn_cancel_form);

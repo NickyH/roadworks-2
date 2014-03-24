@@ -5,11 +5,28 @@ $(function(){
   insert_left();
   insert_top();
   $('ul[id^="accordion-"]').dcAccordion();
-  $("#insert-left").on('click', '#search-by-category-button', search_by_category_qtip);
-  $('.select-this-category').on('click', show_category_list_qtip);
-  $('.category-select-list a').on('click', show_category_options_qtip);
-  $('#category-search').on('keyup', category_live_search);
+  // $("#insert-left").on('click', '#search-by-category-button', search_by_category_qtip);
+  // $('.select-this-category').on('click', show_category_list_qtip);
+  // $('.category-select-list a').on('click', show_category_options_qtip);
+  // $('#category-search').on('keyup', category_live_search);
+  $('#menu').multilevelpushmenu({
+    collapsed: true,
+    fullCollapse: true,
+    backItemClass: 'backItemClass',
+    backItemIcon: 'fa fa-angle-right',
+    groupIcon: 'fa fa-angle-left',
+    mode: 'overlap',
+    direction: 'ltr'
+  });
+
+  $("#insert-left").on('click', '#search-by-category-button', show_menu_panel);
+
 });
+
+function show_menu_panel () {
+  console.log('menu');
+  $('#menu').multilevelpushmenu('expand');
+}
 
 function uncheck_all_others() {
   $('.category-checkbox input[type="checkbox"]').removeAttr('checked');
