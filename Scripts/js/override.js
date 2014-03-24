@@ -8,7 +8,8 @@ $(function(){
   // $("#insert-left").on('click', '#search-by-category-button', search_by_category_qtip);
   // $('.select-this-category').on('click', show_category_list_qtip);
   // $('.category-select-list a').on('click', show_category_options_qtip);
-  // $('#category-search').on('keyup', category_live_search);
+  $('.menu-list-search').on('keyup', menu_live_search);
+
   $('#menu').multilevelpushmenu({
     collapsed: true,
     fullCollapse: true,
@@ -21,6 +22,7 @@ $(function(){
 
   $("#insert-left").on('click', '#search-by-category-button', show_menu_panel);
   $('.menu-options.add-client').on('click', insert_addclient_form);
+  $('.menu-options.add-job').on('click', insert_addjob_form);
 });
 
 function show_menu_panel () {
@@ -197,12 +199,12 @@ function show_category_options_qtip() {
   $(this).parent('li').addClass('category-active');
 }
 
-function category_live_search() {
+function menu_live_search() {
   // Retrieve the input field text and reset the count to zero
   var filter = $(this).val(), count = 0;
 
   // Loop through the comment list
-  $("#category-list li").each(function(){
+  $(this).parent('ul').children('li').each(function(){
     console.log($(this));
     // If the list item does not contain the text phrase fade it out
     if ($(this).text().search(new RegExp(filter, "i")) < 0) {

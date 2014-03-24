@@ -1773,13 +1773,27 @@ input.action-checkbox {
 }
 
 //pullmenu
-
-#menu {
+#menu-container {
   position: fixed;
-  top: 100px;
+  top: 0;
   left: 120px;
   bottom: 0;
   z-index: 10004;
+  overflow: scroll;
+}
+
+#menu {
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  // overflow: scroll;
+}
+
+.levelHolderClass {
+  ul {
+    overflow: scroll;
+  }
 }
 
 .multilevelpushmenu_wrapper h2 {
@@ -1791,8 +1805,24 @@ img.menu-options {
   margin-left: 10px;
   margin-right: 20px;
   margin-top: 10px;
+  opacity: 0.8;
+}
+img.menu-options:hover {
+  opacity: 1;
 }
 
 h2.icon-header {
   margin-bottom: 5px;
+}
+
+input.menu-search {
+  border-radius: 5px;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: auto;
+  height: 25px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 5px;
+  font-size: 14px;
 }
