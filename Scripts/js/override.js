@@ -20,7 +20,7 @@ $(function(){
   });
 
   $("#insert-left").on('click', '#search-by-category-button', show_menu_panel);
-
+  $('.menu-options.add-client').on('click', insert_addclient_form);
 });
 
 function show_menu_panel () {
