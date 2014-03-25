@@ -26,8 +26,7 @@ $(function(){
 });
 
 function show_menu_panel () {
-  console.log('menu');
-  $('#menu').multilevelpushmenu('expand');
+  $('#menu').multilevelpushmenu('collapse');
 }
 
 function uncheck_all_others() {
