@@ -1777,7 +1777,8 @@ input.action-checkbox {
   position: fixed;
   top: 0;
   left: 120px;
-  bottom: 0;
+  width: auto;
+  height: 100%;
   z-index: 10004;
   overflow: scroll;
 }
@@ -1785,9 +1786,10 @@ input.action-checkbox {
 #menu {
   position: relative;
   top: 0;
+  height: 100%;
+  width: auto;
   left: 0;
   bottom: 0;
-  // overflow: scroll;
 }
 
 .levelHolderClass {
@@ -1800,10 +1802,14 @@ input.action-checkbox {
   color: @white;
 }
 
+.icon-header {
+  width: 230px;
+}
+
 img.menu-options {
   width: 30px;
   margin-left: 10px;
-  margin-right: 20px;
+  margin-right: 15px;
   margin-top: 10px;
   opacity: 0.8;
 }
