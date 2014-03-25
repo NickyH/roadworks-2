@@ -1780,7 +1780,6 @@ input.action-checkbox {
   width: auto;
   height: 100%;
   z-index: 10004;
-  overflow: scroll;
 }
 
 #menu {
@@ -1792,10 +1791,10 @@ input.action-checkbox {
   bottom: 0;
 }
 
-.levelHolderClass {
-  ul {
-    overflow: scroll;
-  }
+.scrollable {
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 500px;
 }
 
 .multilevelpushmenu_wrapper h2 {
@@ -1831,4 +1830,8 @@ input.menu-search {
   margin-bottom: 15px;
   padding-left: 5px;
   font-size: 14px;
+}
+
+.backItemClass {
+  background: @form-highlight-colour !important;
 }

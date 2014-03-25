@@ -26,7 +26,7 @@ $(function(){
 });
 
 function show_menu_panel () {
-  $('#menu').multilevelpushmenu('collapse');
+  $('#menu').multilevelpushmenu('expand');
 }
 
 function uncheck_all_others() {
@@ -203,8 +203,7 @@ function menu_live_search() {
   var filter = $(this).val(), count = 0;
 
   // Loop through the comment list
-  $(this).parent('ul').children('li').each(function(){
-    console.log($(this));
+  $(this).parent('ul').children('.scrollable').children('li').each(function(){
     // If the list item does not contain the text phrase fade it out
     if ($(this).text().search(new RegExp(filter, "i")) < 0) {
         $(this).fadeOut();
