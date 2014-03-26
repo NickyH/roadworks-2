@@ -23,6 +23,9 @@ $(function(){
   $("#insert-left").on('click', '#search-by-category-button', show_menu_panel);
   $('.menu-options.add-client').on('click', insert_addclient_form);
   $('.menu-options.add-job').on('click', insert_addjob_form);
+
+  $('#menu ul > li:not(:has(ul)) a').addClass('bottombranch');
+
 });
 
 function show_menu_panel () {
