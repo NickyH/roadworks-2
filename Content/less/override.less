@@ -1795,13 +1795,41 @@ input.action-checkbox {
   overflow: scroll;
   overflow-x: hidden;
   height: 70vh;
-  scrollbar-track-color: #2e6196;
-  scrollbar-face-color: #72a5d3;
+  scrollbar-track-color: #6f7172;
+  scrollbar-face-color: #565859;
+  scrollbar-highlight-color: #565859;
 }
 
 
 .multilevelpushmenu_wrapper h2 {
   color: @white;
+}
+
+.multilevelpushmenu_wrapper .levelHolderClass {
+  background: #6f7172 !important;
+}
+
+.multilevelpushmenu_wrapper li {
+  border-top: 1px solid #565859 !important;
+}
+
+.multilevelpushmenu_wrapper li:last-child {
+  border-top: 1px solid #565859 !important;
+}
+
+.multilevelpushmenu_wrapper li:last-child {
+  border-bottom: 1px solid #565859 !important;
+}
+
+.multilevelpushmenu_wrapper li:hover {
+  background-color: #565859 !important;
+}
+
+.multilevelpushmenu_wrapper .ltr {
+  -moz-box-shadow: 5px 0 5px -5px #565859 !important;
+  -webkit-box-shadow: 5px 0 5px -5px #565859 !important;
+  box-shadow: 5px 0 5px -5px #565859 !important;
+  filter: progid:DXImageTransform.Microsoft.Shadow(color=#565859,direction=90,strength=2) !important;
 }
 
 .icon-header {
@@ -1837,6 +1865,11 @@ input.menu-search {
 
 .backItemClass {
   background: @form-highlight-colour !important;
+  border-top: 1px solid #565859 !important;
+}
+
+.backItemClass:hover {
+  background: darken(@form-highlight-colour, 5%) !important;
 }
 
 h2,
