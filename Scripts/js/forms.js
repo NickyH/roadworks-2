@@ -22,6 +22,8 @@ $('.save-button').on('click', show_form_saved);
 // $('.save-button').on('click', show_form_errors);
 $('.validation-close').on('click', close_validation_bar);
 
+$('.filename-delete').on('click', delete_selected_file);
+
 function toggle_rw_select() {
   $(this).toggleClass('inactive');
 
@@ -464,6 +466,11 @@ function map_navbar() {
     $in.parents('.form-group').next('.filename').children().find('.filename-delete').html('x');
     var recentfile = filename
   });
+
+function delete_selected_file() {
+  $(this).parent('.col-sm-8').children('.filename-text').html("No files added");
+  $(this).parent('.col-sm-8').children('.filename-delete').html("");
+}
 
 
 function insert_addclient_form () {
