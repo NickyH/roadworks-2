@@ -24,6 +24,9 @@ $('.validation-close').on('click', close_validation_bar);
 
 $('.filename-delete').on('click', delete_selected_file);
 
+$('.icon-history').on('click', history_qtip);
+$('.icon-options').on('click', options_qtip);
+
 function toggle_rw_select() {
   $(this).toggleClass('inactive');
 
@@ -505,4 +508,80 @@ function close_validation_bar () {
   $(this).parents('.form-validation-bar').slideUp(1);
   $(this).parents('.form-buttons').next('.form-validation-bar').children('.form-validation-text').addClass('hidden');
   $(this).parents('.form-buttons').next('.form-validation-bar').children('.validation-errors-list').addClass('hidden');
+}
+
+
+function history_qtip() {
+  $(this).qtip({
+      content: {
+        text: $('#process-history'),
+        button: 'Close'
+      },
+      show: {
+          modal: {
+              on: true,
+              solo: true
+          },
+          ready: true,
+          event: 'click',
+          effect: function (offset) {
+              $(this).slideDown(300);
+          }
+      },
+      style: {
+          classes: 'qtip-process-history qtip-rounded qtip-shadow qtip-light',
+          tip: {
+            width: 50,
+            height: 30
+        }
+      },
+      hide: {
+          event: 'click',
+          effect: function () {
+              $(this).slideUp(300);
+              $('#process-history').addClass('hidden');
+          }
+      },
+      overwrite: false,
+      position: {
+          my: 'top right',
+          at: 'bottom left',
+          target: $(this)
+      }
+  });
+  $('#process-history').removeClass('hidden');
+}
+
+
+function options_qtip() {
+  $(this).qtip({
+      content: {
+        text: $('#options-dropdown')
+      },
+      show: {
+          modal: {
+              on: true,
+              solo: true
+          },
+          ready: true,
+          event: 'click'
+      },
+      style: {
+          classes: 'qtip-options-dropdown qtip-rounded qtip-shadow qtip-light',
+          tip: {
+            width: 20,
+            height: 20
+        }
+      },
+      hide: {
+          event: 'click'
+      },
+      overwrite: false,
+      position: {
+          my: 'top center',
+          at: 'bottom center',
+          target: $(this)
+      }
+  });
+  $('#options-dropdown').removeClass('hidden');
 }

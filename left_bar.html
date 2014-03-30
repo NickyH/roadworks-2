@@ -1,10 +1,7 @@
 <div class="left-bar">
-  <a href ="#" id="details-link"><img class="left-bar-icons detail-icon" src="../Content/images/icons/icon-asset-white.png"></a>
-  <a href="#" id="map-link" title="New Job"><img id="refresh-map" class="left-bar-icons map-icon hidden" src="../Content/images/icons/icon-home-white.png"></a>
-
-  <div><div id="search-by-category-button"><img class="left-bar-icons number-icon" src="../Content/images/icons/icon-category-white.png"></div></div>
-  <img class="downer-logo" src="../Content/images/downer-logo-white.png">
-  <div class="powered"><span>Infrastructure</span><span></span></div>
+  <div><a href="#"><img class="left-bar-icons search-icon" src="../Content/images/icons/icon-search-white.png"></a></div>
+  <div><div id="layers-button"><img class="left-bar-icons layers-icon" src="../Content/images/icons/icon-layers-white.png"></div></div>
+  <div><div id="tools-button"><img class="left-bar-icons tools-icon" src="../Content/images/icons/icon-tools-white.png"></div></div>
 
   <div id="bookmark-nav">
     <ul class="left-nav" id="bookmark-nav">
@@ -23,10 +20,14 @@
 
     </ul>
   </div>
+
+    <div class="side-tab-icon asset"><img src="../Content/images/icons/icon-category-white.png"></div>
+
+
 </div>
 
 <script>
-$('#map-link').on('click', goto_map);
-$('#details-link').on('click', goto_forms);
+$(".side-tab-icon.asset").on('click', show_menu_panel);
+
 </script>
 
