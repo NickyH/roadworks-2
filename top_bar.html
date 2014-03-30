@@ -413,12 +413,11 @@
 <div id="options-dropdown" class="hidden">
 
   <div class="list-group">
-    <a href="#" class="list-group-item active">
-      Add Job
-    </a>
-    <a href="#" class="list-group-item">Add Client</a>
-    <a href="#" class="list-group-item">Planning</a>
-    <a href="#" class="list-group-item">Completion</a>
+    <a href="#" class="list-group-item asset">Asset</a>
+    <a href="#" class="list-group-item client">Add Client</a>
+    <a href="#" class="list-group-item job">Add Job</a>
+    <a href="#" class="list-group-item planning">Planning</a>
+    <a href="#" class="list-group-item completion">Completion</a>
   </div>
 
 </div>
@@ -431,11 +430,11 @@
 <script src="../Scripts/js/forms.js"></script>
 
 <script>
-  $('.icon-asset').on('click', insert_asset_form);
-  $('.icon-planning').on('click', insert_jpp_form);
-  $('.icon-practical').on('click', insert_completion_form);
-  $('.icon-addclient').on('click', insert_addclient_form);
-  $('.icon-addjob').on('click', insert_addjob_form);
+  $('.list-group-item.asset').on('click', insert_asset_form);
+  $('.list-group-item.planning').on('click', insert_jpp_form);
+  $('.list-group-item.completion').on('click', insert_completion_form);
+  $('.list-group-item.client').on('click', insert_addclient_form);
+  $('.list-group-item.job').on('click', insert_addjob_form);
   $('#map-link').on('click', goto_map);
   $('#details-link').on('click', goto_forms);
 </script>
