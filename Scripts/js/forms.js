@@ -27,6 +27,11 @@ $('.filename-delete').on('click', delete_selected_file);
 $('.icon-history').on('click', history_qtip);
 $('.icon-options').on('click', options_qtip);
 
+$('[data-slidepanel]').slidepanel({
+    orientation: 'right',
+    mode: 'overlay'
+});
+
 function toggle_rw_select() {
   $(this).toggleClass('inactive');
 
@@ -40,6 +45,10 @@ function toggle_rw_select() {
     enable_fields($(this));
   }
   return false;
+}
+
+function toggle_history_panel() {
+  $('#history-slidepanel').slidepanel('show');
 }
 
 function prevent_disable_dropdown() {
@@ -74,6 +83,10 @@ function disable_fields(group) {
   $(row).children().find('.selectpicker').addClass('disabled');
 }
 
+function close_options_qtip() {
+  $('.qtip.qtip-options-dropdown').qtip('hide');
+}
+
 function insert_asset_form() {
   $('#insert-map').empty();
   $('#insert-form').empty();
@@ -83,6 +96,7 @@ function insert_asset_form() {
   var formName = 'asset'
   show_correct_ovals(formName);
   $('html').animate({ scrollTop: 0 });
+  close_options_qtip()
 }
 
 function insert_jpp_form() {
@@ -93,6 +107,7 @@ function insert_jpp_form() {
   var formName = 'jpp'
   show_correct_ovals(formName);
   $('html').animate({ scrollTop: 0 });
+  close_options_qtip()
 }
 
 function insert_completion_form() {
@@ -103,6 +118,7 @@ function insert_completion_form() {
   var formName = 'pc'
   show_correct_ovals(formName);
   $('html').animate({ scrollTop: 0 });
+  close_options_qtip()
 }
 
 function show_correct_ovals(formName) {
@@ -482,6 +498,7 @@ function insert_addclient_form () {
   $.get('forms/form_addclient.html', function(data) {
     $('#insert-form').html(data);
   });
+  close_options_qtip()
 }
 
 function insert_addjob_form () {
@@ -490,6 +507,7 @@ function insert_addjob_form () {
   $.get('forms/form_addjob.html', function(data) {
     $('#insert-form').html(data);
   });
+  close_options_qtip()
 }
 
 function show_form_saved () {
