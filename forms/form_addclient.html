@@ -28,7 +28,7 @@
   <div class="container-fluid form-container">
 
     <!-- form row 1 -->
-    <div class="row">
+    <div class="row" id="bookmark_addclient_details">
       <div class="col-12">
         <div class="row-fluid">
 
@@ -125,14 +125,14 @@
                   </div>
 
                   <div class="form-group">
-                    <label class="col-sm-4 control-label">DEW Rep</label>
+                    <label class="col-sm-4 control-label">Downer Rep</label>
                     <div class="col-sm-8">
                       <input class="form-control"></input>
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="col-sm-4 control-label">DEW Rep Phone</label>
+                    <label class="col-sm-4 control-label">Downer Rep Phone</label>
                     <div class="col-sm-8">
                       <input class="form-control"></input>
                     </div>
@@ -165,7 +165,7 @@
     <!-- end form row 1 -->
 
     <!-- form row 2 -->
-    <div class="row" id="bookmark_notes">
+    <div class="row" id="bookmark_addclient_notes">
       <div class="col-12">
         <div class="row-fluid">
 
@@ -216,14 +216,14 @@
                   </div>
 
                   <div class="form-group">
-                    <label class="col-sm-4 control-label">Last Modified By</label>
+                    <label class="col-sm-4 control-label">Modified By</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control">
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="col-sm-4 control-label">Last Modified Date</label>
+                    <label class="col-sm-4 control-label">Modified Date</label>
                     <div class="col-sm-8">
                       <div class="input-group merged">
                         <input type="text" class="form-control date datepicker" />
@@ -240,7 +240,7 @@
                 <div class="form-column col-lg-6 col-md-6 col-sm-12">
 
                   <div class="form-group">
-                    <label class="col-sm-4 control-label">Note Description</label>
+                    <label class="col-sm-4 control-label">Description</label>
                     <div class="col-sm-8">
                       <textarea class="form-control" rows="7"></textarea>
                     </div>
@@ -278,8 +278,118 @@
     </div>
     <!-- end form row 2 -->
 
+    <!-- form row 3 -->
+    <div class="row" id="bookmark_addclient_history">
+      <div class="col-12">
+        <div class="row-fluid">
+
+          <!-- form panel 1 -->
+          <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <div class="form-panel full-width">
+              <!-- numbered circle in each form panel-->
+              <div class="text-circle">
+                <div class="text-in-circle">
+                  Notes History
+                </div>
+              </div>
+
+              <form class="form-horizontal container" role="form">
+
+                <div class="form-group" role="search">
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control search" placeholder="Search">
+                  </div>
+                </div>
+
+                <table id="table-filter-2" class="table table-condensed table-striped">
+                  <thead>
+                    <tr>
+                      <th>Ref. No.</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Contact Date</th>
+                      <th>Work Phone</th>
+                      <th>Home Phone</th>
+                      <th>Mobile</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1035.35</td>
+                      <td>Julia</td>
+                      <td>Blogg</td>
+                      <td>14/10/2012</td>
+                      <td>98567492</td>
+                      <td>94358327</td>
+                      <td>0416496845</td>
+                    </tr>
+                    <tr>
+                      <td>1035.35</td>
+                      <td>Gerald</td>
+                      <td>Lim</td>
+                      <td>04/01/2013</td>
+                      <td>98567492</td>
+                      <td>94358327</td>
+                      <td>0412059483</td>
+                    </tr>
+                    <tr>
+                      <td>1035.35</td>
+                      <td>Joseph</td>
+                      <td>Koll</td>
+                      <td>05/05/2012</td>
+                      <td>98567492</td>
+                      <td>94358327</td>
+                      <td>0418384736</td>
+                    </tr>
+                    <tr>
+                      <td>1035.35</td>
+                      <td>Samantha</td>
+                      <td>Rickson</td>
+                      <td>12/10/2012</td>
+                      <td>98567492</td>
+                      <td>94358327</td>
+                      <td>0413958473</td>
+                    </tr>
+                    <tr>
+                      <td>1035.35</td>
+                      <td>Daniella</td>
+                      <td>Olivetti</td>
+                      <td>05/05/2012</td>
+                      <td>98567492</td>
+                      <td>94358327</td>
+                      <td>0418384736</td>
+                    </tr>
+                    <tr>
+                      <td>1035.35</td>
+                      <td>Gregory</td>
+                      <td>Heath</td>
+                      <td>10/05/2012</td>
+                      <td>98567492</td>
+                      <td>94353432</td>
+                      <td>0413958473</td>
+                    </tr>
+                </tbody>
+                </table>
+
+              </form>
+
+            </div>
+          </div>
+          <!-- end form panel 1 -->
+
+        </div>
+      </div>
+    </div>
+    <!-- end form row 3 -->
+
   </div> <!-- end form container -->
 </div>
 
 
 <script src="../Scripts/js/forms.js"></script>
+
+<script>
+$('.form-container').on('DOMMouseScroll mousewheel', get_client_page_position);
+$('.form-container').bind('swipemove',get_client_page_position);
+</script>

@@ -131,14 +131,24 @@ li.active {
     width: 120px;
     height: 50px;
     border-radius: 5px;
-    background-color: lighten(@left-bar-colour, 10%);
+    // background-color: lighten(@left-bar-colour, 10%);
     margin-left: 45%;
     margin-top: 5px;
+    @media @widthLarge {
+      margin-left: 300px;
+    }
+    @media @widthMediumLarge  {
+      margin-left: 120px;
+    }
+    @media @widthMedium {
+
+    }
+    @media @widthNarrow {
+      display: none;
+    }
     .downer-logo {
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
+      width: 75%;
+      margin-left: 12%;
     }
     .powered {
       padding: 0 10px 0 10px;
@@ -157,10 +167,9 @@ li.active {
     .contract {
       background-color: @white;
       width: 100%;
-      height: 18px;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-      margin-top: 0px;
+      height: 20px;
+      border-radius: 5px;
+      margin-top: 10px;
       float: left;
       padding: 0 10px 0 10px;
       span {
@@ -202,6 +211,10 @@ li.active {
   margin-right: 20px;
   background-color: @form-highlight-colour !important;
   cursor: pointer;
+  &.disabled {
+    cursor: auto;
+    opacity: 0.3;
+  }
   &.map-icon {
     float: left;
     width: 50px;
@@ -361,6 +374,10 @@ li.active {
   width: 50px;
   height: 50px;
   margin-left: 34px;
+  &.disabled {
+    cursor: auto;
+    opacity: 0.3;
+  }
   &.search-icon {
     background-color: @map-icon-colour !important;
     margin-top: 100px;
@@ -544,7 +561,8 @@ li.active {
     float: right;
     height: 100%;
     width: 100%;
-    padding-left: 170px;
+    padding-left: 140px;
+    margin-right: 20px;
     padding-top: 140px;
     background-color: @background-main;
     }
@@ -597,9 +615,12 @@ li.active {
 }
 
 .print-form {
+  width: 100%;
   span {
-    margin-left: 100px;
-    margin-right: 100px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center !important;
     font-size: 13px;
     font-weight: bold;
   }
@@ -1330,7 +1351,7 @@ li.required {
 }
 
 .oval {
-  width: 80px;
+  width: 90px;
   height: 30px;
   border-radius: 8px;
   background-color: @bubble-background;
@@ -1908,12 +1929,16 @@ input.menu-search {
 }
 
 .backItemClass {
-  background: @form-highlight-colour !important;
-  border-top: 1px solid @slide-background !important;
+  background: @slide-background !important;
+  border-top: none !important;
+  width: 30px;
+  .fa {
+    color: orange;
+  }
 }
 
 .backItemClass:hover {
-  background: darken(@form-highlight-colour, 5%) !important;
+  background: darken(@slide-background, 5%) !important;
 }
 
 h2,
@@ -1926,6 +1951,7 @@ a {
 .levelHolderClass {
   h2 {
     margin-top: 10px;
+    color: orange;
   }
 }
 

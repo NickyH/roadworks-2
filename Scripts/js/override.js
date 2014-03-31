@@ -17,9 +17,10 @@ $(function(){
     collapsed: true,
     fullCollapse: true,
     backItemClass: 'backItemClass',
-    backItemIcon: 'fa fa-angle-right',
+    backText: '',
+    backItemIcon: 'fa fa-angle-left',
     preventItemClick: true,
-    groupIcon: 'fa fa-angle-left',
+    groupIcon: 'fa fa-angle-right',
     mode: 'overlap',
     direction: 'ltr'
   });

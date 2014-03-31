@@ -1,6 +1,5 @@
-var topOffset = 170;
+var topOffset = 140;
 
-add_cross_to_required_forms();
 change_selectpicker_values();
 disable_datepickers();
 $('.form-horizontal').on('keyup', this, check_panel_valid);
@@ -122,9 +121,59 @@ function insert_completion_form() {
 }
 
 function show_correct_ovals(formName) {
+  if (formName === 'addclient') {
+
+    $('a[data-href="#bookmark_addclient_details"]').parent('li').show();
+    $('a[data-href="#bookmark_addclient_notes"]').parent('li').show();
+    $('a[data-href="#bookmark_addclient_history"]').parent('li').show();
+
+    $('a[data-href="#bookmark_addjob_details"]').parent('li').hide();
+    $('a[data-href="#bookmark_addjob_notes"]').parent('li').hide();
+    $('a[data-href="#bookmark_addjob_history"]').parent('li').hide();
+
+    $('a[data-href="#bookmark_details_asset"]').parent('li').hide();
+
+    $('a[data-href="#bookmark_details_pl"]').parent('li').hide();
+    $('a[data-href="#bookmark_activities"]').parent('li').hide();
+    $('a[data-href="#bookmark_planning"]').parent('li').hide();
+    $('a[data-href="#bookmark_conditions"]').parent('li').hide();
+    $('a[data-href="#bookmark_map"]').parent('li').hide();
+
+    $('a[data-href="#bookmark_details_pc"]').parent('li').hide();
+    $('a[data-href="#bookmark_signoff"]').parent('li').hide();
+  }
+  if (formName === 'addjob') {
+
+    $('a[data-href="#bookmark_addclient_details"]').parent('li').hide();
+    $('a[data-href="#bookmark_addclient_notes"]').parent('li').hide();
+    $('a[data-href="#bookmark_addclient_history"]').parent('li').hide();
+
+    $('a[data-href="#bookmark_addjob_details"]').parent('li').show();
+    $('a[data-href="#bookmark_addjob_notes"]').parent('li').show();
+    $('a[data-href="#bookmark_addjob_history"]').parent('li').show();
+
+    $('a[data-href="#bookmark_details_asset"]').parent('li').hide();
+
+    $('a[data-href="#bookmark_details_pl"]').parent('li').hide();
+    $('a[data-href="#bookmark_activities"]').parent('li').hide();
+    $('a[data-href="#bookmark_planning"]').parent('li').hide();
+    $('a[data-href="#bookmark_conditions"]').parent('li').hide();
+    $('a[data-href="#bookmark_map"]').parent('li').hide();
+
+    $('a[data-href="#bookmark_details_pc"]').parent('li').hide();
+    $('a[data-href="#bookmark_signoff"]').parent('li').hide();
+  }
   if (formName === 'asset') {
 
     $('a[data-href="#bookmark_details_asset"]').parent('li').show();
+
+    $('a[data-href="#bookmark_addclient_details"]').parent('li').hide();
+    $('a[data-href="#bookmark_addclient_notes"]').parent('li').hide();
+    $('a[data-href="#bookmark_addclient_history"]').parent('li').hide();
+
+    $('a[data-href="#bookmark_addjob_details"]').parent('li').hide();
+    $('a[data-href="#bookmark_addjob_notes"]').parent('li').hide();
+    $('a[data-href="#bookmark_addjob_history"]').parent('li').hide();
 
     $('a[data-href="#bookmark_details_pl"]').parent('li').hide();
     $('a[data-href="#bookmark_activities"]').parent('li').hide();
@@ -138,6 +187,14 @@ function show_correct_ovals(formName) {
   if (formName === 'jpp') {
     $('a[data-href="#bookmark_details_asset"]').parent('li').hide();
 
+    $('a[data-href="#bookmark_addclient_details"]').parent('li').hide();
+    $('a[data-href="#bookmark_addclient_notes"]').parent('li').hide();
+    $('a[data-href="#bookmark_addclient_history"]').parent('li').hide();
+
+    $('a[data-href="#bookmark_addjob_details"]').parent('li').hide();
+    $('a[data-href="#bookmark_addjob_notes"]').parent('li').hide();
+    $('a[data-href="#bookmark_addjob_history"]').parent('li').hide();
+
     $('a[data-href="#bookmark_details_pl"]').parent('li').show();
     $('a[data-href="#bookmark_activities"]').parent('li').show();
     $('a[data-href="#bookmark_planning"]').parent('li').show();
@@ -148,6 +205,15 @@ function show_correct_ovals(formName) {
     $('a[data-href="#bookmark_signoff"]').parent('li').hide();
   }
   if (formName === 'pc') {
+
+    $('a[data-href="#bookmark_addclient_details"]').parent('li').hide();
+    $('a[data-href="#bookmark_addclient_notes"]').parent('li').hide();
+    $('a[data-href="#bookmark_addclient_history"]').parent('li').hide();
+
+    $('a[data-href="#bookmark_addjob_details"]').parent('li').hide();
+    $('a[data-href="#bookmark_addjob_notes"]').parent('li').hide();
+    $('a[data-href="#bookmark_addjob_history"]').parent('li').hide();
+
     $('a[data-href="#bookmark_details_pc"]').parent('li').show();
     $('a[data-href="#bookmark_signoff"]').parent('li').show();
 
@@ -268,11 +334,43 @@ function check_panel_valid() {
 function check_form_location() {
   if (!$('#bookmark-nav ul').hasClass('disabled')) {
     var href = $(this).attr('data-href');
+    // add client form
+    if (href === '#bookmark_addclient_details') {
+      var scrollAmount = ($(href).offset().top) - topOffset;
+      $('html, body').animate({ scrollTop: scrollAmount }, 1000);
+      oval_border_highlight('#tab20');
+    }
+    if (href === '#bookmark_addclient_notes') {
+      var scrollAmount = ($(href).offset().top) - topOffset;
+      $('html, body').animate({ scrollTop: scrollAmount }, 1000);
+      oval_border_highlight('#tab21');
+    }
+    if (href === '#bookmark_addclient_history') {
+      var scrollAmount = ($(href).offset().top) - topOffset;
+      $('html, body').animate({ scrollTop: scrollAmount }, 1000);
+      oval_border_highlight('#tab22');
+    }
+    // add job form
+    if (href === '#bookmark_addjob_details') {
+      var scrollAmount = ($(href).offset().top) - topOffset;
+      $('html, body').animate({ scrollTop: scrollAmount }, 1000);
+      oval_border_highlight('#tab13');
+    }
+    if (href === '#bookmark_addjob_notes') {
+      var scrollAmount = ($(href).offset().top) - topOffset;
+      $('html, body').animate({ scrollTop: scrollAmount }, 1000);
+      oval_border_highlight('#tab21');
+    }
+    if (href === '#bookmark_addjob_history') {
+      var scrollAmount = ($(href).offset().top) - topOffset;
+      $('html, body').animate({ scrollTop: scrollAmount }, 1000);
+      oval_border_highlight('#tab14');
+    }
     //asset form
     if (href === '#bookmark_details_asset') {
       var scrollAmount = ($(href).offset().top) - topOffset;
       $('html, body').animate({ scrollTop: scrollAmount }, 1000);
-      oval_border_highlight('#tab0');
+      oval_border_highlight('#tab15');
     }
     // planning form
     if (href === '#bookmark_details_pl') {
@@ -358,28 +456,58 @@ function form_navbar() {
   $('.detail-icon').addClass('hidden');
   $('.icon-addclient').addClass('hidden');
   $('.icon-addjob').addClass('hidden');
+  $('.side-tab-icon.history').removeClass('hidden');
+  $('.side-tab-icon.asset').addClass('hidden');
+}
+
+function get_client_page_position() {
+  var details = $('#bookmark_addclient_details').offset().top;
+  var notes = $('#bookmark_addclient_notes').offset().top;
+  var history = $('#bookmark_addclient_history').offset().top;
+
+  if ($(window).scrollTop() >= (details - topOffset -50 ) ) {
+    oval_border_highlight('#tab20');
+  }
+  if ($(window).scrollTop() >= (notes - topOffset -50) ) {
+    oval_border_highlight('#tab21');
+  }
+  if ($(window).scrollTop() >= (history - topOffset -50) ) {
+    oval_border_highlight('#tab22');
+  }
+}
+
+function get_job_page_position() {
+  var details = $('#bookmark_addjob_details').offset().top;
+  var notes = $('#bookmark_addjob_notes').offset().top;
+  var history = $('#bookmark_addjob_history').offset().top;
+
+  if ($(window).scrollTop() >= (details - topOffset -50 ) ) {
+    oval_border_highlight('#tab13');
+  }
+  if ($(window).scrollTop() >= (notes - topOffset -50) ) {
+    oval_border_highlight('#tab14');
+  }
+  if ($(window).scrollTop() >= (history - topOffset -50) ) {
+    oval_border_highlight('#tab15');
+  }
 }
 
 function get_rw1_page_position() {
-  var details = $('#bookmark_details_pl').offset().top;
   var activities = $('#bookmark_activities').offset().top;
-  var planning = $('#bookmark_planning').offset().top;
   var siteplan = $('#bookmark_conditions').offset().top;
+  var planning = $('#bookmark_planning').offset().top;
   var map = $('#bookmark_map').offset().top;
 
-  if ($(window).scrollTop() >= (details - topOffset -50) ) {
-    oval_border_highlight('#tab1');
-  }
   if ($(window).scrollTop() >= (activities - topOffset -50 ) ) {
     oval_border_highlight('#tab2');
   }
-  if ($(window).scrollTop() >= (planning - topOffset -50) ) {
+  if ($(window).scrollTop() >= (siteplan - topOffset -50) ) {
     oval_border_highlight('#tab3');
   }
-  if ($(window).scrollTop() >= (siteplan - topOffset -50) ) {
+  if ($(window).scrollTop() >= (map - topOffset -50) ) {
     oval_border_highlight('#tab4');
   }
-  if ($(window).scrollTop() >= (map - topOffset -50) ) {
+  if ($(window).scrollTop() >= (planning - topOffset -50) ) {
     oval_border_highlight('#tab5');
   }
 }
@@ -472,6 +600,8 @@ function map_navbar() {
   $('.oval-text').addClass('hidden');
   $('.detail-icon').removeClass('hidden');
   $('.map-icon').addClass('hidden');
+  $('.side-tab-icon.history').addClass('hidden');
+  $('.side-tab-icon.asset').removeClass('hidden');
 }
 
 // get filename when file is attached and display it in the next form-group
@@ -498,6 +628,9 @@ function insert_addclient_form () {
   $.get('forms/form_addclient.html', function(data) {
     $('#insert-form').html(data);
   });
+  var formName = 'addclient'
+  show_correct_ovals(formName);
+  $('html').animate({ scrollTop: 0 });
   close_options_qtip()
 }
 
@@ -507,6 +640,9 @@ function insert_addjob_form () {
   $.get('forms/form_addjob.html', function(data) {
     $('#insert-form').html(data);
   });
+  var formName = 'addjob'
+  show_correct_ovals(formName);
+  $('html').animate({ scrollTop: 0 });
   close_options_qtip()
 }
 
