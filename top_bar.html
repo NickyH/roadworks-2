@@ -1,6 +1,8 @@
 <div class="top-bar">
   <a href ="#" id="details-link"><img class="top-bar-icons detail-icon" src="../Content/images/icons/icon-asset-white.png"></a>
   <a href="#" id="map-link" title="New Job"><img id="refresh-map" class="top-bar-icons map-icon hidden" src="../Content/images/icons/icon-home-white.png"></a>
+  <img title="Options" class="top-bar-icons icon-form icon-options hidden" src="../Content/images/icons/icon-options-white.png">
+
   <div class="utility-tab map-tools">
     <!--map icons-->
     <!-- icons for map tools -->
@@ -9,27 +11,15 @@
     <img class="top-bar-icons icon-map icon-locate-me" src="../Content/images/icons/icon-locateme-white.png">
     <img class="top-bar-icons icon-map icon-address-book" id="search-by-address-button" src="../Content/images/icons/icon-address-white.png">
 
-   <!--  <img title="Add Job" class="top-bar-icons icon-form icon-addjob" src="../Content/images/icons/icon-add-job-white.png">
-
-    <img title="Add Client" class="top-bar-icons icon-form icon-addclient" src="../Content/images/icons/icon-add-client-white.png"> -->
-    <!--form icons-->
-    <!-- <img title="Practical Completion" class="top-bar-icons icon-form icon-practical hidden" src="../Content/images/icons/icon-practical-white.png">
-
-    <img title="Preliminary Planning" class="top-bar-icons icon-form icon-planning hidden" src="../Content/images/icons/icon-planning-white.png">
-
-    <img title="Details" class="top-bar-icons icon-form icon-asset hidden" src="../Content/images/icons/icon-asset-white.png"> -->
-
-    <img title="Options" class="top-bar-icons icon-form icon-options hidden" src="../Content/images/icons/icon-options-white.png">
-
-    <!-- history icon -->
-    <!-- <img class="top-bar-icons icon-form icon-history hidden" src="../Content/images/icons/icon-history-white.png"> -->
-
     <div class="side-tab-icon history"><a href="history.html" data-slidepanel="panel"><img src="../Content/images/icons/icon-history-white.png"></a></div>
 
   </div>
 
+<div class='logo-container'>
   <img class="downer-logo" src="../Content/images/downer-logo-white.png">
-  <div class="powered"><span>Infrastructure</span><span></span></div>
+  <div class="powered"><span>Infrastructure</span></div>
+  <div class="contract"><span>G6 Roadworks</span></div>
+</div>
 
 </div>
 
@@ -61,5 +51,5 @@
   $('.list-group-item.job').on('click', insert_addjob_form);
   $('#map-link').on('click', goto_map);
   $('#details-link').on('click', goto_forms);
-  $('.side-tab-icon.history').on('click', toggle_history_panel);
+
 </script>
