@@ -4,6 +4,9 @@ change_selectpicker_values();
 disable_datepickers();
 $('.datepicker').pickadate();
 
+$('.input-group-addon .glyphicon-calendar').on('click', calendar_icon_click); //activate calendar on icon click
+$('.input-group-addon .glyphicon-time').on('click', clock_icon_click); //activate timepicker on icon click
+
 $('.form-horizontal').on('keyup', this, check_panel_valid);
 $('.form-horizontal').on('change', this, check_panel_valid);
 $( '.form-horizontal .container' ).parsley( 'validate');
@@ -32,6 +35,9 @@ $('[data-slidepanel]').slidepanel({
     orientation: 'right',
     mode: 'overlay'
 });
+
+$('.reference-history').on('keyup', get_val_table_ID);
+
 
 function toggle_rw_select() {
   $(this).toggleClass('inactive');
@@ -91,10 +97,10 @@ function close_options_qtip() {
 function insert_asset_form() {
   $('#insert-map').empty();
   $('#insert-form').empty();
-  $.get('forms/form_asset.html', function(data) {
+  $.get('forms/form_addjob.html', function(data) {
     $('#insert-form').html(data);
     });
-  var formName = 'asset'
+  var formName = 'addjob'
   show_correct_ovals(formName);
   $('html').animate({ scrollTop: 0 });
   close_options_qtip()
@@ -231,14 +237,18 @@ function show_correct_ovals(formName) {
 
 // inserts the first form into the form page on initial load of details page
 function show_first_form() {
-  $.get('forms/form_asset.html', function(data) {
+  $.get('forms/form_addjob.html', function(data) {
     $('#insert-form').html(data);
     });
   window.location = ('form.html'); //initial refresh
 }
 
 function calendar_icon_click() {
-  // $(this).parent().children('.form-control').datetimepicker('show');
+  $(this).parent().parent().children('input').trigger('click');
+}
+
+function clock_icon_click() {
+  $(this).parent().parent('.input-group').children('.insert-time-picker').trigger('focus');
 }
 
 function goto_forms() {
@@ -529,7 +539,7 @@ function get_rw2_page_position() {
 function warn_cancel_form() {
   bootbox.confirm('Are you sure you want to cancel all changes made to this form?', function (response) {
     if(response) {
-      window.location = '/';
+      insert_addjob_form();
     }
   });
 }
@@ -540,19 +550,6 @@ function warn_close_form() {
       window.location = '/';
     }
   });
-}
-
-function check_this_panel_required(thisObj) {
-  var thisPanel = $(thisObj);
-  var required = false
-  $(thisPanel).each(function() {
-    $(this).find('.form-control').each(function() {
-      if ($(this).attr('data-required')) {
-        required = true
-        }
-      });
-    });
-  return required;
 }
 
 // datetimepicker
@@ -746,4 +743,25 @@ function options_qtip() {
       }
   });
   $('#options-dropdown').removeClass('hidden');
+}
+
+
+function get_val_table_ID () {
+  var thisObj = $(this).children('input');
+  var tableID = $(this).parents('form').children('table').attr('id');
+  table_search(thisObj, tableID);
+}
+
+function table_search(thisObj, tableID) {
+  console.log(thisObj);
+  var $rows = $("#"+tableID+" tr");
+  var val = '^(?=.*\\b' + $.trim($(thisObj).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
+      reg = RegExp(val, 'i'),
+      text;
+
+  $rows.show().filter(function() {
+      text = $(this).text().replace(/\s+/g, ' ');
+      return !reg.test(text);
+  }).hide();
+  $('thead tr').show();
 }
