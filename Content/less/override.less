@@ -1126,6 +1126,7 @@ input[name="rw1-check"] {
   height: 100%;
   overflow: auto;
   li {
+    color: @white;
     width: 200px;
     background-color: @map-highlight-colour;
     list-style: none;
@@ -1149,6 +1150,10 @@ input[name="rw1-check"] {
   }
 }
 
+.cb_slide_panel ul li a {
+  color: @white;
+}
+
 .dcjq-parent-li {
   margin-left: 0;
   margin-right: 0;
@@ -1158,6 +1163,10 @@ input[name="rw1-check"] {
   }
   li {
     background-color: lighten( @map-highlight-colour, 10% );
+  }
+  a {
+    color: @white;
+    font-weight: bold;
   }
 }
 
@@ -1707,23 +1716,6 @@ span.lookup:hover {
   border: none !important;
 }
 
-// .history-tree-wrapper {
-//   .history-title {
-//     font-size: 18px;
-//     width: 150px;
-//     height: 35px;
-//     background-color: @form-highlight-colour;
-//     opacity: 0.6;
-//     color: @white;
-//     border-radius: 5px;
-//     margin-left: 10px;
-//     line-height: 35px;
-//     text-indent: 10px;
-//     border: 1px solid @grey-light;
-//     margin-bottom: 10px;
-//   }
-// }
-
 #accordion-15 {
   max-height: 800px;
   min-height: 300px;
@@ -1865,6 +1857,7 @@ input.action-checkbox {
 }
 
 .scrollable {
+  min-width: 300px;
   overflow: auto;
   height: 50vh;
   scrollbar-track-color: #6f7172;
@@ -1875,6 +1868,14 @@ input.action-checkbox {
   li {
     width: 80%;
   }
+}
+
+li.bounds i img.menu-options {
+  display: none;
+}
+
+li.bounds i.floatRight.cursorPointer img.menu-options {
+  display: inline-block;
 }
 
 .multilevelpushmenu_wrapper h2 {
@@ -1909,9 +1910,7 @@ input.action-checkbox {
 }
 
 .icon-header {
-  position: absolute;
-  top: 59px;
-  left: 30px;
+  display: inline-block;
 }
 
 img.menu-options {
@@ -2167,6 +2166,9 @@ a {
   }
   .dcjq-parent-li {
     width: 250px;
+     ul {
+      padding-left: 0;
+    }
   }
 }
 
