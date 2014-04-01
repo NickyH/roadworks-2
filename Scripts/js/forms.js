@@ -2,6 +2,8 @@ var topOffset = 140;
 
 change_selectpicker_values();
 disable_datepickers();
+$('.datepicker').pickadate();
+
 $('.form-horizontal').on('keyup', this, check_panel_valid);
 $('.form-horizontal').on('change', this, check_panel_valid);
 $( '.form-horizontal .container' ).parsley( 'validate');
@@ -236,7 +238,7 @@ function show_first_form() {
 }
 
 function calendar_icon_click() {
-  $(this).parent().children('.form-control').datetimepicker('show');
+  // $(this).parent().children('.form-control').datetimepicker('show');
 }
 
 function goto_forms() {
@@ -555,38 +557,44 @@ function check_this_panel_required(thisObj) {
 
 // datetimepicker
 $('.insert-time-picker').datetimepicker({
-  format: 'hh:ii',
-  language: 'en',
-    autoClose: "true",
-    startView: 1,
-    minView: 0,
-    maxView: 1,
-    forceParse: 0
+  pickDate: false,
+  language:'en'
 });
 
-$('.insert-date-picker').datetimepicker({
-  format: 'dd/mm/yyyy',
-  language: 'en',
-  todayBtn: "linked",
-  startView: 3,
-    minView: 2,
-    maxView: 4,
-    autoClose: "true",
-    todayHighlight: 1,
-    startView: 2,
-    forceParse: 1
-});
+// datetimepicker
+// $('.insert-time-picker').datetimepicker({
+//   format: 'hh:ii',
+//   language: 'en',
+//     autoClose: "true",
+//     startView: 1,
+//     minView: 0,
+//     maxView: 1,
+//     forceParse: 0
+// });
 
-$('.insert-picker').datetimepicker({
-    language: 'en',
-    weekStart: 1,
-    todayBtn: 1,
-      autoClose: 1,
-      todayHighlight: 1,
-      startView: 2,
-      forceParse: 0,
-    showMeridian: 1
-});
+// $('.insert-date-picker').datetimepicker({
+//   format: 'dd/mm/yyyy',
+//   language: 'en',
+//   todayBtn: "linked",
+//   startView: 3,
+//     minView: 2,
+//     maxView: 4,
+//     autoClose: "true",
+//     todayHighlight: 1,
+//     startView: 2,
+//     forceParse: 1
+// });
+
+// $('.insert-picker').datetimepicker({
+//     language: 'en',
+//     weekStart: 1,
+//     todayBtn: 1,
+//       autoClose: 1,
+//       todayHighlight: 1,
+//       startView: 2,
+//       forceParse: 0,
+//     showMeridian: 1
+// });
 
 
 function goto_map() {

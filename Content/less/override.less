@@ -1271,7 +1271,7 @@ input[name="rw1-check"] {
 //bootstrap general overrides
 .input-group-addon {
   // min-width:50px;
-  text-align:right;
+  text-align: right;
   &.layers {
     min-width: 30px;
   }
@@ -1279,6 +1279,17 @@ input[name="rw1-check"] {
 
 .form-control {
   float: right;
+}
+
+.form-control[readonly] {
+  background-color: white;
+  cursor: text;
+}
+
+.picker__holder {
+  th {
+    text-align: center;
+  }
 }
 
 .search {
@@ -1696,22 +1707,22 @@ span.lookup:hover {
   border: none !important;
 }
 
-.history-tree-wrapper {
-  .history-title {
-    font-size: 18px;
-    width: 150px;
-    height: 35px;
-    background-color: @form-highlight-colour;
-    opacity: 0.6;
-    color: @white;
-    border-radius: 5px;
-    margin-left: 10px;
-    line-height: 35px;
-    text-indent: 10px;
-    border: 1px solid @grey-light;
-    margin-bottom: 10px;
-  }
-}
+// .history-tree-wrapper {
+//   .history-title {
+//     font-size: 18px;
+//     width: 150px;
+//     height: 35px;
+//     background-color: @form-highlight-colour;
+//     opacity: 0.6;
+//     color: @white;
+//     border-radius: 5px;
+//     margin-left: 10px;
+//     line-height: 35px;
+//     text-indent: 10px;
+//     border: 1px solid @grey-light;
+//     margin-bottom: 10px;
+//   }
+// }
 
 #accordion-15 {
   max-height: 800px;
@@ -1898,22 +1909,23 @@ input.action-checkbox {
 }
 
 .icon-header {
-  width: 230px;
+  position: absolute;
+  top: 59px;
+  left: 30px;
 }
 
 img.menu-options {
-  width: 30px;
-  margin-left: 10px;
-  margin-right: 15px;
-  margin-top: 10px;
+  width: 37px;
+  margin-left: 5px;
   opacity: 0.8;
+  background: @slide-background !important;
+  &.locate {
+    margin-left: 10px;
+  }
 }
 img.menu-options:hover {
   opacity: 1;
-}
-
-h2.icon-header {
-  margin-bottom: 5px;
+  background: darken(@slide-background, 5%) !important;
 }
 
 input.menu-search {
@@ -1932,6 +1944,9 @@ input.menu-search {
   background: @slide-background !important;
   border-top: none !important;
   width: 30px;
+  a {
+    margin-right: 4px;
+  }
   .fa {
     color: orange;
   }
@@ -1951,6 +1966,7 @@ a {
 .levelHolderClass {
   h2 {
     margin-top: 10px;
+    margin-bottom: 30px;
     color: orange;
   }
 }
@@ -2049,6 +2065,9 @@ a {
 
 //history panel
 .process-history {
+  .item {
+    width: 300px;
+  }
   li {
     width: 250px;
   }
@@ -2058,7 +2077,7 @@ a {
     border-top-right-radius: 5px;
     color: @white;
     float: right;
-    height: 30px;
+    height: 25px;
     width: 80px;
     z-index: 10;
     margin-top: 0;
@@ -2083,8 +2102,8 @@ a {
 
 .history-button {
   position: absolute;
-  top: 0;
-  right: 60px;
+  top: 10px;
+  right: 35px;
   background-color: cyan;
   width: 220px;
   height: 30px;
@@ -2139,18 +2158,15 @@ a {
 //history panel accordion
 #accordion-20 {
   height: 450px;
-  width: 400px;
+  width: 350px;
   border-radius: 5px;
   margin-left: 0;
-  margin-top: 20px;
+  margin-top: 50px;
   .menu {
     width: 300px;
   }
-  .dcjq-parent {
-    width: 300px;
-  }
   .dcjq-parent-li {
-    width: 300px;
+    width: 250px;
   }
 }
 
