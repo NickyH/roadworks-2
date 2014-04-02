@@ -42,22 +42,6 @@ function uncheck_all_others() {
   $(this).attr('checked', 'checked');
 }
 
-function warn_cancel_form() {
-  bootbox.confirm('Are you sure you want to cancel all changes made to this form?', function (response) {
-    if(response) {
-      window.location = '/';
-    }
-  });
-}
-
-function warn_close_form() {
-  bootbox.confirm('This will permanently close off this issue', function (response) {
-    if(response) {
-      window.location = '/';
-    }
-  });
-}
-
 function map_navbar() {
   $('.icon-map').removeClass('hidden');
   $('.icon-form').addClass('hidden');

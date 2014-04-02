@@ -537,17 +537,9 @@ function get_rw2_page_position() {
 }
 
 function warn_cancel_form() {
-  bootbox.confirm('Are you sure you want to cancel all changes made to this form?', function (response) {
+  bootbox.confirm('This will cancel any changes you made to this form.', function (response) {
     if(response) {
       insert_addjob_form();
-    }
-  });
-}
-
-function warn_close_form() {
-  bootbox.confirm('This will permanently close off this issue', function (response) {
-    if(response) {
-      window.location = '/';
     }
   });
 }
