@@ -18,7 +18,6 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
     $('.selectpicker').selectpicker('mobile');
 }
 $('#bookmark-nav').on('click', 'a', check_form_location);
-$('.close-form').on('click', warn_close_form);
 $('.cancel-button').on('click', warn_cancel_form);
 //validation bar functions
 $('.form-validation-bar').slideUp(1);
