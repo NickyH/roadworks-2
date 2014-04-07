@@ -7,8 +7,6 @@ $('.datepicker').pickadate();
 $('.input-group-addon .glyphicon-calendar').on('click', calendar_icon_click); //activate calendar on icon click
 $('.input-group-addon .glyphicon-time').on('click', clock_icon_click); //activate timepicker on icon click
 
-$('.form-horizontal').on('keyup', this, check_panel_valid);
-$('.form-horizontal').on('change', this, check_panel_valid);
 $( '.form-horizontal .container' ).parsley( 'validate');
 $('.selectpicker').selectpicker({
     size: 'auto',
@@ -24,8 +22,6 @@ $('.form-validation-bar').slideUp(1);
 $('.save-button').on('click', show_form_saved);
 // $('.save-button').on('click', show_form_errors);
 $('.validation-close').on('click', close_validation_bar);
-
-$('.filename-delete').on('click', delete_selected_file);
 
 $('.icon-history').on('click', history_qtip);
 $('.icon-options').on('click', options_qtip);
@@ -613,8 +609,8 @@ function map_navbar() {
   });
 
 function delete_selected_file() {
-  $(this).parent('.col-sm-8').children('.filename-text').html("No files added");
-  $(this).parent('.col-sm-8').children('.filename-delete').html("");
+  $(this).parent('div').children('.filename-text').html("No files added");
+  $(this).parent('div').children('.filename-delete').html("");
 }
 
 

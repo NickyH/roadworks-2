@@ -756,15 +756,17 @@
   $('.form-container').on('DOMMouseScroll mousewheel', get_rw1_page_position);
   $('.form-container').bind('swipemove',get_rw1_page_position);
 
-// get filename when file is attached and display it in the next form-group
-  $('input[type=file]').change(function(e){
-    $in=$(this);
-    var filename = $in.val().split('\\').pop();
-    if (filename === "No files added" || filename === "" ) {
-      filename = recentfile;
-    }
-    $in.parents('.form-group').next('.filename').children().find('.filename-text').html(filename);
-    $in.parents('.form-group').next('.filename').children().find('.filename-delete').html('x');
-    var recentfile = filename
-  });
+// // get filename when file is attached and display it in the next form-group
+//   $('input[type=file]').change(function(e){
+//     $in=$(this);
+//     var filename = $in.val().split('\\').pop();
+//     if (filename === "No files added" || filename === "" ) {
+//       filename = recentfile;
+//     }
+//     $in.parents('.form-group').next('.filename').children().find('.filename-text').html(filename);
+//     $in.parents('.form-group').next('.filename').children().find('.filename-delete').html('x');
+//     var recentfile = filename
+//   });
+
+$('.filename-delete').on('click', delete_selected_file);
 </script>
