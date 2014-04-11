@@ -3,8 +3,10 @@ var owlLayersHtml;
 //dom ready functions
 $(function(){
   create_layers_carousel();
+  create_asset_carousel();
   $("#insert-left").on('click', '#search-by-category-button', search_by_category_qtip);
   $("#insert-left").on('click', '#layers-button', layers_qtip);
+  $("#insert-left").on('click', '#asset-tree-button', asset_qtip);
   $('.select-this-category').on('click', show_category_list_qtip);
   $('.category-select-list a').on('click', show_category_options_qtip);
   $('#category-search').on('keyup', category_live_search);
@@ -58,6 +60,53 @@ function layers_qtip() {
   });
 }
 
+function asset_qtip() {
+  $(this).qtip({
+      content: {
+        text: $('.asset-owl-wrapper'),
+        button: 'Close'
+      },
+      show: {
+          modal: {
+              on: true,
+              solo: true
+          },
+
+          ready: true,
+          event: 'click',
+          effect: function (offset) {
+              $(this).slideDown(300);
+          }
+      },
+      style: {
+          classes: 'qtip-asset-panel qtip-rounded qtip-shadow qtip-light',
+          tip: {
+            corner: 'center left',
+            width: 50,
+            height: 30,
+            target: $(this)
+        }
+      },
+      hide: {
+          event: 'click',
+          effect: function () {
+              $(this).slideUp(300);
+          }
+      },
+      overwrite: false,
+      position: {
+          my: 'center left',
+          at: 'center right',
+          target: $('#asset-tree-button'),
+          adjust: {
+            scroll: true, // Can be ommited (e.g. default behaviour),
+            y: 15,
+            x: -10
+        }
+      }
+  });
+}
+
 function search_by_category_qtip() {
   $(this).qtip({
       content: {
@@ -103,6 +152,56 @@ function search_by_category_qtip() {
 
 function create_layers_carousel() {
   owlLayersHtml = $("#owl-example").owlCarousel({
+
+    // Most important owl features
+    items : 3,
+    itemsDesktop : [1199,3],
+    itemsDesktopSmall : [980,3],
+    itemsTablet: [800,3],
+    itemsTabletSmall: [400,2],
+    itemsMobile : [479,1],
+    singleItem : false,
+    itemsScaleUp : false,
+
+    //Basic Speeds
+    slideSpeed : 200,
+    paginationSpeed : 800,
+    rewindSpeed : 1000,
+
+    //Autoplay
+    autoPlay : false,
+    stopOnHover : false,
+
+    // Navigation
+    navigation : true,
+    navigationText : false,
+    rewindNav : true,
+    scrollPerPage : false,
+
+    //Pagination
+    pagination : true,
+    paginationNumbers: true,
+
+    // Responsive
+    responsive: true,
+    responsiveRefreshRate : 100,
+    responsiveBaseWidth: window,
+
+    // CSS Styles
+    baseClass : "owl-carousel",
+
+    //Auto height
+    autoHeight : false,
+
+    //Transitions
+    transitionStyle : false,
+    })
+  $('.owl-prev').addClass('arrow-left');
+  $('.owl-next').addClass('arrow-right');
+}
+
+function create_asset_carousel() {
+  owlLayersHtml = $("#owl-example2").owlCarousel({
 
     // Most important owl features
     items : 3,
